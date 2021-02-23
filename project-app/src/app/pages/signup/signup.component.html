@@ -3,18 +3,16 @@
         <mat-card>
             <mat-card-content class="p-4">
                 <form [formGroup]="form" *ngIf="form" (ngSubmit)="onSignUp()">
+                    
                     <div class="row">
                         <mat-form-field class="w-100">
                             <mat-label>Username</mat-label>
                             <input matInput type="text" [formControl]="usernameControl" />
-                            <ng-container *ngIf="usernameControl.invalid">
-                                <mat-error *ngIf="usernameControl.required">
-                                    You must enter your username
+                            <!-- <ng-container *ngIf="usernameControl.invalid"> -->
+                                <mat-error *ngIf="usernameControl.invalid">
+                                    Username should have at least 6 characters
                                 </mat-error>
-                                <mat-error *ngIf="usernameControl.minlength">
-                                    Username should have at least 6 alhphanumeric characters
-                                </mat-error>
-                            </ng-container>
+                            <!-- </ng-container> -->
                         </mat-form-field>
                     </div>
 
@@ -32,14 +30,13 @@
                         <mat-form-field class="w-100">
                             <mat-label>Password</mat-label>
                             <input matInput type="password" [formControl]="passwordControl" />
-                            <ng-container *ngIf="usernameControl.invalid">
-                                <mat-error *ngIf="passwordControl.required">
-                                    You must enter the password
+                            <!-- <ng-container *ngIf="usernameControl.invalid"> -->
+
+                                <mat-error *ngIf="passwordControl.invalid">
+                                    password minimum length 6 characters
                                 </mat-error>
-                                <mat-error *ngIf="passwordControl.minlength">
-                                    Username should have at least 6 alhphanumeric characters
-                                </mat-error>
-                            </ng-container>
+                
+                            <!-- </ng-container> -->
                         </mat-form-field>
                     </div>
 
