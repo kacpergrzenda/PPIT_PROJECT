@@ -11,20 +11,19 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-
-  form: any;//Form variable
-
+  signupForm: any;//Form variable
+  hide = true;
   //Getter/Accessors
   get usernameControl() {
-    return this.form.get('username');
+    return this.signupForm.get('username');
   }
 
   get passwordControl() {
-    return this.form.get('password');
+    return this.signupForm.get('password');
   }
 
   get emailControl() {
-    return this.form.get('email');
+    return this.signupForm.get('email');
   }
 
   constructor(
@@ -35,7 +34,7 @@ export class SignupComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.form = new FormGroup({
+    this.signupForm = new FormGroup({
       username: new FormControl('', [Validators.required, Validators.minLength(6)]),
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(6)]),
@@ -44,23 +43,23 @@ export class SignupComponent implements OnInit {
 
   //signup request from the AuthService once the user submits the form
   onSignUp() {
-    this.authService.signUp(
+    this.authService.signUp(//Call signUp Method in Auth.Service.Ts
       this.emailControl.value,
-      this.passwordControl.value,
-      this.usernameControl.value
+      this.passwordControl.value
     ).then(
       () => {
+         /* OPENS SNAKCBAR AT THE BOTTOM OF THE SCREEN WITH MESSAGE */
         this.snackBar.open('You signed up to this app!');
-        //MODIFY THIS LATER REDIRECT USER TO THE MAIN PAGE OF THE APP BY USING THE ROUTER AND NAVIGATE METHOD
-        //WRITING TO FIRESTORE DATABASE
+        /* WRITING TO FIRESTORE DATABASE AND SAVING EMAIL, PASSWORD, USERNAME */
         this.firestore.collection('users').add({
-          email: this.form.value.email,
-          password: this.form.value.password,
-          username: this.form.value.username
+          email: this.signupForm.value.email,
+          password: this.signupForm.value.password,
+          username: this.signupForm.value.username
         })
           .then(res => {
             console.log(res);
-            this.form.reset();
+            /* CLEARS FORM */
+            this.signupForm.reset();
           })
           .catch(e => {
             console.log(e);
@@ -69,6 +68,7 @@ export class SignupComponent implements OnInit {
       })
       .catch(
         (_err: any) => {
+          /* OPENS SNAKCBAR AT THE BOTTOM OF THE SCREEN WITH MESSAGE */
           this.snackBar.open('There was a problem while trying to sign up a new user');
         });
   }

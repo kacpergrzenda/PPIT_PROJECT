@@ -16,13 +16,15 @@ import { switchMap } from 'rxjs/operators';
 export class AuthService {
 
 
-  user$: Observable<any>;
+  user$: Observable<any>; // Save logged in user data
 
   constructor(
-    private afAuth: AngularFireAuth,
-    private afs: AngularFirestore,
+    private afAuth: AngularFireAuth, //Firebase Auth Service
+    private afs: AngularFirestore, //FireStore service 
     private router: Router
   ) { 
+    /* Saving user data in localstorage when 
+    logged in and setting up null when logged out */
     this.user$ = this.afAuth.authState.pipe(
         switchMap(user => {
             // Logged in
@@ -37,9 +39,14 @@ export class AuthService {
   }
 
   //signUp method is a request to our Firebase Authentication to create a new user
-  async signUp(email: string, password: string, username: string) {
+  async signUp(email: string, password: string) {
     return this.afAuth.createUserWithEmailAndPassword(email, password)
   }
+
+  async signIn(email: string, password: string) {
+    return this.afAuth.signInWithEmailAndPassword(email, password)
+  }
+
 
   async updateUserData({ username, email, password }: User) {
     // Sets user data to firestore on login
@@ -55,6 +62,7 @@ export class AuthService {
 
   }
 
+  
   async signOut(){
     await this.afAuth.signOut();
     this.router.navigate(['/']);

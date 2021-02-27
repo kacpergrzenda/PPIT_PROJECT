@@ -1,31 +1,19 @@
 <mat-card>
     <mat-card-content>
         <div class="header">
-            <h2>SIGNUP</h2>
+            <h2>SIGNIN</h2>
         </div>
-        <form [formGroup]="signupForm" *ngIf="signupForm" (ngSubmit)="onSignUp()">
-
-            <div class="row">
-                <mat-form-field class="full-width" appearance="outline">
-                    <mat-label>Username</mat-label>
-                    <input matInput type="text" [formControl]="usernameControl" />
-                    <mat-error *ngIf="usernameControl.invalid">
-                        Username should have at least 6 characters
-                    </mat-error>
-                </mat-form-field>
-            </div>
-
+        <form [formGroup]="signinForm" *ngIf="signinForm">
             <div class="email-input">
                 <mat-form-field class="full-width" appearance="outline">
                     <mat-label>Email</mat-label>
                     <input matInput type="text" [formControl]="emailControl" />
                     <mat-error *ngIf="emailControl.invalid">
-                        You must enter your email
+                        Required email address.
                     </mat-error>
                 </mat-form-field>
             </div>
-
-            <div class="row">
+            <div>
                 <span class="aLink">Forgot Password?</span>
                 <mat-form-field class="full-width" appearance="outline">
                     <mat-label>Password</mat-label>
@@ -35,13 +23,12 @@
                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
                     <mat-error *ngIf="passwordControl.invalid">
-                        password minimum length 6 characters
+                        Required password.
                     </mat-error>
                 </mat-form-field>
             </div>
-
             <div class="text-center">
-                <button mat-raised-button color="primary" type="submit" [disabled]="!signupForm.valid">
+                <button mat-raised-button color="primary" type="submit" [disabled]="!signinForm.valid">
                     Sign Up
                 </button>
             </div>
