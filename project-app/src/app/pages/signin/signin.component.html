@@ -1,7 +1,7 @@
 <mat-card>
     <mat-card-content>
         <div class="header">
-            <h2>SIGNIN</h2>
+            <h2>Log In</h2>
         </div>
         <form [formGroup]="signinForm" *ngIf="signinForm" (ngSubmit)="onSignin()">
             <div class="email-input">
@@ -29,7 +29,7 @@
             </div>
             <div class="text-center">
                 <button mat-raised-button color="primary" type="submit" [disabled]="!signinForm.valid">
-                    Sign Up
+                    Log In
                 </button>
             </div>
         </form>
