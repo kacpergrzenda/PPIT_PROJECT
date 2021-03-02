@@ -3,7 +3,7 @@
         <div class="header">
             <h2>SIGNIN</h2>
         </div>
-        <form [formGroup]="signinForm" *ngIf="signinForm">
+        <form [formGroup]="signinForm" *ngIf="signinForm" (ngSubmit)="onSignin()">
             <div class="email-input">
                 <mat-form-field class="full-width" appearance="outline">
                     <mat-label>Email</mat-label>
@@ -35,3 +35,4 @@
         </form>
     </mat-card-content>
 </mat-card>
+

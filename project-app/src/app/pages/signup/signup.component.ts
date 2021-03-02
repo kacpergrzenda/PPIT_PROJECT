@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { AuthService } from 'src/app/shared/auth/auth.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 @Component({
@@ -72,5 +72,7 @@ export class SignupComponent implements OnInit {
           this.snackBar.open('There was a problem while trying to sign up a new user');
         });
   }
+
+  
 
 }

@@ -16,8 +16,8 @@ import { switchMap } from 'rxjs/operators';
 export class AuthService {
 
 
-  user$: Observable<any>; // Save logged in user data
-
+  user$ : any; // Save logged in user data
+  //let user
   constructor(
     private afAuth: AngularFireAuth, //Firebase Auth Service
     private afs: AngularFirestore, //FireStore service 
@@ -48,14 +48,15 @@ export class AuthService {
   }
 
 
-  async updateUserData({ username, email, password }: User) {
+  async updateUserData(user: User) {
     // Sets user data to firestore on login
-    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${email}`);
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
 
     const data = { 
-      username, 
-      email, 
-      password
+      uid: user.uid,
+      displayName: user.displayName, 
+      email: user.email, 
+      password: user.password
     } 
 
     return userRef.set(data, { merge: true })
