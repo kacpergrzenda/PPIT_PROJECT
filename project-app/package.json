@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "~11.1.2",
     "@angular/router": "~11.1.2",
     "@schematics/angular": "^11.2.2",
+    "bootstrap": "^4.6.0",
     "firebase": "^8.2.9",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

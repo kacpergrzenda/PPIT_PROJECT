@@ -15,7 +15,7 @@ export class SignupComponent implements OnInit {
   hide = true;
   //Getter/Accessors
   get usernameControl() {
-    return this.signupForm.get('username');
+    return this.signupForm.get('displayName');
   }
 
   get passwordControl() {
@@ -35,7 +35,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.signupForm = new FormGroup({
-      username: new FormControl('', [Validators.required, Validators.minLength(6)]),
+      displayName: new FormControl('', [Validators.required, Validators.minLength(6)]),
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(6)]),
     });
@@ -43,34 +43,26 @@ export class SignupComponent implements OnInit {
 
   //signup request from the AuthService once the user submits the form
   onSignUp() {
-    this.authService.signUp(//Call signUp Method in Auth.Service.Ts
-      this.emailControl.value,
-      this.passwordControl.value
-    ).then(
-      () => {
-         /* OPENS SNAKCBAR AT THE BOTTOM OF THE SCREEN WITH MESSAGE */
-        this.snackBar.open('You signed up to this app!');
-        /* WRITING TO FIRESTORE DATABASE AND SAVING EMAIL, PASSWORD, USERNAME */
-        this.firestore.collection('users').add({
-          email: this.signupForm.value.email,
-          password: this.signupForm.value.password,
-          username: this.signupForm.value.username
-        })
-          .then(res => {
-            console.log(res);
-            /* CLEARS FORM */
-            this.signupForm.reset();
-          })
-          .catch(e => {
-            console.log(e);
-          })
+    this.authService.signUp(this.emailControl.value,this.passwordControl.value)
+    .then(() => {
+      
+    })
+    // .then(() => {
+    //      /* OPENS SNAKCBAR AT THE BOTTOM OF THE SCREEN WITH MESSAGE */
+    //     // this.snackBar.open('You signed up to this app!');
+    //     /* WRITING TO FIRESTORE DATABASE AND SAVING EMAIL, PASSWORD, USERNAME */
+    //     // this.firestore.collection('users').add({
+    //     //   email: this.signupForm.value.email,
+    //     //   password: this.signupForm.value.password,
+    //     //   displayName: this.signupForm.value.username
+    //     // })
 
-      })
-      .catch(
-        (_err: any) => {
-          /* OPENS SNAKCBAR AT THE BOTTOM OF THE SCREEN WITH MESSAGE */
-          this.snackBar.open('There was a problem while trying to sign up a new user');
-        });
+    //   })
+    //   .catch(
+    //     (_err: any) => {
+    //       /* OPENS SNAKCBAR AT THE BOTTOM OF THE SCREEN WITH MESSAGE */
+    //       // this.snackBar.open('There was a problem while trying to sign up a new user');
+    //     });
   }
 
   

@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from 'src/app/services/auth/auth.service';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 
 
@@ -43,17 +43,22 @@ export class SigninComponent implements OnInit {
 
   onSignin() {
     this.authService.signIn(this.emailControl.value, this.passwordControl.value).
-      then((userCredential) => {
-        var user = userCredential.user;
-        //this.router.routerLink ; ['/home']
-        this.router.navigate(['home']) // Once Logged in Navigates User to Home Page.
-        this.snackBar.open('YOUR SIGNED IN!');
-      })
-      .catch(
-        (_err: any) => {
-          /* OPENS SNAKCBAR AT THE BOTTOM OF THE SCREEN WITH MESSAGE */
-          this.snackBar.open('There was a problem while trying to sign IN a new user');
-        });
+    then(() => {
+      //this.snackBar.open('YOUR SIGNED IN!');
+    })
+      // then((UserCredential) => {
+      //   var user = UserCredential.user;
+      //   // Once Logged in Navigates User to Home Page.
+      //   this.router.navigate(['home']).then(successful => {
+      //     this.authService.updateUserData(user);
+      //   }) 
+      //   this.snackBar.open('YOUR SIGNED IN! ');
+      // })
+      // .catch(
+      //   (_err: any) => {
+      //     /* OPENS SNAKCBAR AT THE BOTTOM OF THE SCREEN WITH MESSAGE */
+      //     this.snackBar.open('There was a problem while trying to sign IN a new user');
+      //   });
   }
 
 }
