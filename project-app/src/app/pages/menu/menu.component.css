@@ -1,4 +1,43 @@
-.center {
+
+mat-card{
+  max-width: 600px;
+  margin: 2em auto;
+  text-align: center;
+  max-height: fit-content;
+}
+
+.header{
+  text-align: center;
+}
+
+body {
+  background-image: url('https://wallpaperaccess.com/full/1397775.jpg');
+}
+
+.main-div{
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons{
+  width: 500px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .center {
     margin: 0;
     position: absolute;
     top: 30%;
@@ -15,4 +54,4 @@
 
     body {
         background-image: url('https://www.desktopbackground.org/download/o/2010/06/17/34466_top-gym-background-images-for-pinterest_1920x1080_h.jpg');
-      }
+      } */

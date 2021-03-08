@@ -1,0 +1,36 @@
+
+.head{
+    height:30px;
+    width:100%;
+    background:#3B5998;
+    position:fixed;
+    top:0;
+    left: 0;
+    z-index:1000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+body {
+    background-image: url('https://wallpaperaccess.com/full/1397775.jpg');
+  }
+
+
+

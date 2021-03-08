@@ -1,38 +1,41 @@
-<mat-card>
-    <mat-card-content>
-        <div class="header">
-            <h2>Log In</h2>
-        </div>
-        <form [formGroup]="signinForm" *ngIf="signinForm" (ngSubmit)="onSignin()">
-            <div class="email-input">
-                <mat-form-field class="full-width" appearance="outline">
-                    <mat-label>Email</mat-label>
-                    <input matInput type="text" [formControl]="emailControl" />
-                    <mat-error *ngIf="emailControl.invalid">
-                        Required email address.
-                    </mat-error>
-                </mat-form-field>
-            </div>
-            <div>
-                <span class="aLink">Forgot Password?</span>
-                <mat-form-field class="full-width" appearance="outline">
-                    <mat-label>Password</mat-label>
-                    <input matInput [type]="hide ? 'password' : 'text'" [formControl]="passwordControl" required />
-                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                        [attr.aria-pressed]="hide">
-                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                    </button>
-                    <mat-error *ngIf="passwordControl.invalid">
-                        Required password.
-                    </mat-error>
-                </mat-form-field>
-            </div>
-            <div class="text-center">
-                <button mat-raised-button color="primary" type="submit" [disabled]="!signinForm.valid">
-                    Log In
-                </button>
-            </div>
-        </form>
-    </mat-card-content>
-</mat-card>
-
+<body>
+    <div class="main-div">
+        <mat-card>
+            <mat-card-content>
+                <div class="header">
+                    <h2>Log In</h2>
+                </div>
+                <form [formGroup]="signinForm" *ngIf="signinForm" (ngSubmit)="onSignin()">
+                    <div class="email-input">
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input matInput type="text" [formControl]="emailControl" />
+                            <mat-error *ngIf="emailControl.invalid">
+                                Required email address.
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <span class="aLink">Forgot Password?</span>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Password</mat-label>
+                            <input matInput [type]="hide ? 'password' : 'text'" [formControl]="passwordControl" required />
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                                [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                            <mat-error *ngIf="passwordControl.invalid">
+                                Required password.
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="text-center">
+                        <button mat-raised-button color="warn" type="submit" [disabled]="!signinForm.valid">
+                            Log In
+                        </button>
+                    </div>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</body>

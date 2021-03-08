@@ -26,3 +26,14 @@ mat-card{
     padding-right: 60px;
     text-decoration: none;
 }
+
+.main-div{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  body {
+    background-image: url('https://wallpaperaccess.com/full/1397775.jpg');
+  }
