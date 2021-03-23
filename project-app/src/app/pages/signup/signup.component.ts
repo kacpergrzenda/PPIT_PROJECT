@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from 'src/app/services/auth/auth.service';
@@ -29,6 +29,7 @@ export class SignupComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private snackBar: MatSnackBar,
+    private router: Router,
     private firestore: AngularFirestore
   ) { }
 
@@ -44,25 +45,24 @@ export class SignupComponent implements OnInit {
   //signup request from the AuthService once the user submits the form
   onSignUp() {
     this.authService.signUp(this.emailControl.value,this.passwordControl.value)
-    .then(() => {
-      
-    })
-    // .then(() => {
-    //      /* OPENS SNAKCBAR AT THE BOTTOM OF THE SCREEN WITH MESSAGE */
-    //     // this.snackBar.open('You signed up to this app!');
-    //     /* WRITING TO FIRESTORE DATABASE AND SAVING EMAIL, PASSWORD, USERNAME */
-    //     // this.firestore.collection('users').add({
-    //     //   email: this.signupForm.value.email,
-    //     //   password: this.signupForm.value.password,
-    //     //   displayName: this.signupForm.value.username
-    //     // })
+    .then((userCredential) => {
+       // Signed in 
+       var user = userCredential.user;
+         /* OPENS SNAKCBAR AT THE BOTTOM OF THE SCREEN WITH MESSAGE */
+        this.snackBar.open('You signed up to this app!');
+        /* WRITING TO FIRESTORE DATABASE AND SAVING EMAIL, PASSWORD, USERNAME */
+        // this.firestore.collection('users').add({
+        //   email: this.signupForm.value.email,
+        //   uid: user?.uid
+        // })
+        this.router.navigate(['home']);
 
-    //   })
-    //   .catch(
-    //     (_err: any) => {
-    //       /* OPENS SNAKCBAR AT THE BOTTOM OF THE SCREEN WITH MESSAGE */
-    //       // this.snackBar.open('There was a problem while trying to sign up a new user');
-    //     });
+      })
+      .catch(
+        (error) => {
+          /* OPENS SNAKCBAR AT THE BOTTOM OF THE SCREEN WITH MESSAGE */
+          this.snackBar.open('There was a problem while trying to sign up a new user' + error.code +  error.message);
+        });
   }
 
   
