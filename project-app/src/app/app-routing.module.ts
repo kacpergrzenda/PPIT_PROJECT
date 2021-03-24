@@ -20,8 +20,11 @@ const routes: Routes = [
   {
     path: 'menu',
     loadChildren: () => import('./../app/pages/menu/menu.module').then(module => module.MenuModule),
+  },
+  {
+    path: 'profilepage',
+    loadChildren: () => import('./../app/pages/profile-page/profile-page.module').then(module => module.ProfilePageModule),
   }
-
 ];
 
 @NgModule({
