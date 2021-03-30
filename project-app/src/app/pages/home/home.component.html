@@ -1,17 +1,63 @@
-
-
-
 <body>
+  <p>
+    <!-- NAVIGATION TOOLBAR-->
+    <mat-toolbar>
+      <button mat-raised-button mat-icon-button class="" [matMenuTriggerFor]="menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="example-spacer"></span>
+      <span>HOME</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="" aria-label="Example icon-button with heart icon" routerLink="/home">
+        <mat-icon>home</mat-icon>
+      </button>
+      <button mat-icon-button class="" aria-label="Example icon-button with share icon">
+        <mat-icon>share</mat-icon>
+      </button>
+    </mat-toolbar>
+  </p>
+  <!-- CONTAINER -->
+ 
+  <ng-container *ngIf="chat$ | async as chat">
 
-  <ul>
-    <li><a class="active" href="/home">Home</a></li>
-    <li><a href="/profilepage">Profile</a></li>
-    <li>        
-      <a href="/menu" class="btn btn-info btn-lg">
-      <span class="glyphicon glyphicon-log-out"></span>Log out</a>
-    </li>
-  </ul>
+    <div class="top">
+      <p>
+        <!-- https://firestore-megachat.firebaseapp.com/chats/{{ chat.id }} -->
+      </p>
+    </div>
 
+
+    <div class="chat">
+
+
+      <!-- <div class="msg" *ngFor="let msg of chat.messages; trackBy: trackByCreated"> -->
+
+        <div class="user">
+          <!-- <img [src]="msg.user?.photoURL">
+          <div>{{ msg.user?.displayName }}</div> -->
+        </div>
+
+        <!-- <p>{{ msg.content }}</p> -->
+
+      <!-- </div> -->
+
+    </div>
+
+    <!-- <div class="form">
+      <input [(ngModel)]="newMsg" (keydown.enter)="submit(chat.id)">
+
+      <button (click)="submit(chat.id)">Send</button>
+    </div> -->
+
+  </ng-container>
 </body>
 
 
+<!-- mat-menu-trigger-for -->
+<!-- Gets Triggered When Menu Icon Clicked -->
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="/home">Home</button>
+  <button mat-menu-item routerLink="/profilepage"> Profile</button>
+  <button mat-menu-item (click)="onSignOut()"> Sign Out</button>
+  <button mat-menu-item (click)="sendMessage()"> Send</button>
+</mat-menu>

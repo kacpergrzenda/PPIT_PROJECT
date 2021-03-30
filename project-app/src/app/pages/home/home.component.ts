@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+
 import { AuthService } from 'src/app/services/auth/auth.service';
-import { User } from 'src/app/user.model';
+import { ChatService } from 'src/app/services/chat/chat.service';
 import firebase from "firebase/app";
-import "firebase/auth";
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -13,27 +15,67 @@ import "firebase/auth";
 export class HomeComponent implements OnInit {
   userId: any;
   userEmail: any;
-   constructor(public authService: AuthService) { }
+  user: any;
+
+
+
+  chat$: Observable<any> | undefined;
+  newMsg: any;
+
+  constructor(public cs: ChatService,
+    private authService: AuthService,
+    private route: ActivatedRoute,
+  ) { }
 
   ngOnInit(): void {
-    
-     //this.user =  JSON.parse(localStorage.getItem('user') || '{}');
 
-     firebase.auth().onAuthStateChanged((user) => {
+    firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
         this.userId = user.uid;
         this.userEmail = user.email;
+        this.user = user;
+        console.log(this.userEmail)
 
+        // const chatId = this.route.snapshot.paramMap.get('id');
+        const source = this.cs.get();
+        this.chat$ = this.cs.joinUsers(source);
+        console.log(this.chat$)
+        //console.log(source)
+        
+
+      
         // ...
       } else {
         // User is signed out
         // ...
       }
     });
-      
+
   }
+
+
+  onSignOut() {
+    this.cs.create()
+    this.authService.signOut()
+  }
+
+  submit(chatId:any) {
+    this.cs.sendMessage(chatId, this.newMsg);
+    this.newMsg = '';
+  }
+
+  trackByCreated(i:any, msg:any) {
+    return msg.createdAt;
+}
+
+sendMessage(){
+  this.cs.sendMessage('thiswillbeuserid','Hello');
+}
+
+
+
 
 
 

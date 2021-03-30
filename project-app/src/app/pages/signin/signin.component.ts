@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -46,19 +46,6 @@ export class SigninComponent implements OnInit {
     then(() => {
       //this.snackBar.open('YOUR SIGNED IN!');
     })
-      // then((UserCredential) => {
-      //   var user = UserCredential.user;
-      //   // Once Logged in Navigates User to Home Page.
-      //   this.router.navigate(['home']).then(successful => {
-      //     this.authService.updateUserData(user);
-      //   }) 
-      //   this.snackBar.open('YOUR SIGNED IN! ');
-      // })
-      // .catch(
-      //   (_err: any) => {
-      //     /* OPENS SNAKCBAR AT THE BOTTOM OF THE SCREEN WITH MESSAGE */
-      //     this.snackBar.open('There was a problem while trying to sign IN a new user');
-      //   });
   }
 
 }
