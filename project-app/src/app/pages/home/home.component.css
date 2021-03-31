@@ -11,3 +11,31 @@
     border-color: #719ECE;
     box-shadow: 0 0 10px #719ECE;
 }
+
+
+* {
+  box-sizing: border-box;
+}
+
+/* <!--Angular Material Grid to create 3 columns--> */
+mat-grid-tile {
+  background: lightblue;
+}
+
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+
+.button-column {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 250px;
+}
+

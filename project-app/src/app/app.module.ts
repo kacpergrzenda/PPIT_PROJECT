@@ -13,13 +13,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Auth service
 import { AuthService } from "../app/services/auth/auth.service";
-import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ProfilePageComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,

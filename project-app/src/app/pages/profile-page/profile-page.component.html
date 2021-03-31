@@ -1,30 +1,101 @@
 
-
-
 <body>
+    <p>
+      <!-- NAVIGATION TOOLBAR-->
+      <mat-toolbar>
+        <button mat-raised-button mat-icon-button class="" [matMenuTriggerFor]="menu">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span class="example-spacer"></span>
+        <span>ProfilePage</span>
+        <span class="example-spacer"></span>
+      </mat-toolbar>
+    </p>
 
-    <ul>
-      <li><a class="active" href="/home">Home</a></li>
-      <li><a href="/profilepage">Profile</a></li>
-      <li>        
-        <a  (click)="onSignOut()" class="btn btn-info btn-lg">
-        <span class="glyphicon glyphicon-log-out"></span>Log out</a>
-      </li>
-    </ul>
+  <!--Angular Material Grid to create profile background image-->
+  <mat-grid-list cols="1" rowHeight="1:0.1">
+    <mat-grid-tile colspan='1'>
+      <div class="profilePictureDiv">
+        <img class="profilePicture" src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8cGVyc29ufGVufDB8fDB8&ixlib=rb-1.2.1&w=1000&q=80">
+      </div>
+      <div>
+        <img src="https://t3.ftcdn.net/jpg/02/89/61/64/360_F_289616456_wwOUZZTsYTOcIxGbwffOS8iP4QatFHa1.jpg" style="width:100%">
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
 
-<div> 
-    <div class="card">
-    <img src="https://www.dmarge.com/wp-content/uploads/2021/01/dwayne-the-rock-.jpg" style="width:100%">
-    <h1>Dwayne</h1>
-    <p class="title">CEO & Founder, Example</p>
-    <p>Harvard University</p>
-    <div style="margin: 24px 0;">
-        <a href="#"><i class="fa fa-dribbble">Actor</i></a> 
-        <a href="#"><i class="fa fa-twitter"></i></a>  
-        <a href="#"><i class="fa fa-linkedin"></i></a>  
-        <a href="#"><i class="fa fa-facebook"></i></a> 
-    </div>
-    <p><button>Contact</button></p>
-    </div>
-</div>  
-  </body>
+
+
+  <!--Profile Page Tabs-->
+  <mat-tab-group mat-align-tabs="center">
+<!--FIRST TAB-->
+    <mat-tab label="Posts">   
+      <mat-grid-list cols="1" rowHeight="1:0.5">
+        <mat-grid-tile colspan='1'>
+          <!--Profile Card-->
+          <mat-card class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>Shiba Inu</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+              <p>
+                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                bred for hunting.
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button>LIKE</button>
+              <button mat-button>SHARE</button>
+            </mat-card-actions>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-tab>
+
+<!--SECOND TAB-->
+    <mat-tab label="Personal Info"> 
+      <mat-grid-list cols="1" rowHeight="1:0.2">
+        <mat-grid-tile colspan='1'>
+
+          <form class="example-form">
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Height</mat-label>
+              <input matInput placeholder="Ex. 6ft">
+            </mat-form-field>
+        
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Weight</mat-label>
+              <input matInput placeholder="Ex. 80KG">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Gender</mat-label>
+              <mat-select>
+                <mat-option value="one">Male</mat-option>
+                <mat-option value="two">Female</mat-option>
+                <mat-option value="three">Attack Helicopter</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </form>
+
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-tab>
+
+  </mat-tab-group>
+   
+</body>
+  
+  
+  <!-- mat-menu-trigger-for -->
+  <!-- Gets Triggered When Menu Icon Clicked -->
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/home">Home</button>
+    <button mat-menu-item routerLink="/profilepage"> Profile</button>
+    <button mat-menu-item (click)="onSignOut()"> Sign Out</button>
+  </mat-menu>
+
+

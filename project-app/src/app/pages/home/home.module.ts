@@ -10,6 +10,10 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import { FormsModule } from '@angular/forms';
 
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatCardModule} from '@angular/material/card';
+
+
 @NgModule({
   declarations: [HomeComponent],
   imports: [
@@ -19,6 +23,8 @@ import { FormsModule } from '@angular/forms';
     MatToolbarModule,
     MatIconModule,
     CommonModule,
+    MatGridListModule,
+    MatCardModule,
     RouterModule.forChild([{ path: '', component: HomeComponent }])
   ]
 })
