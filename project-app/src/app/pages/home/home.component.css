@@ -23,7 +23,8 @@ mat-grid-tile {
 }
 
 .example-card {
-  max-width: 400px;
+  max-height: max-content;
+  width: 600px;
 }
 
 .example-header-image {

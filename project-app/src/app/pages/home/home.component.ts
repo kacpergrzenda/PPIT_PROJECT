@@ -5,6 +5,7 @@ import { ChatService } from 'src/app/services/chat/chat.service';
 import firebase from "firebase/app";
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { element } from 'protractor';
 
 
 @Component({
@@ -40,12 +41,14 @@ export class HomeComponent implements OnInit {
 
         // const chatId = this.route.snapshot.paramMap.get('id');
         const source = this.cs.get();
-        this.chat$ = this.cs.joinUsers(source);
-        console.log(this.chat$)
-        //console.log(source)
-        
 
-      
+        this.chat$ = this.cs.joinUsers(source);
+        console.log("chat:" + this.chat$)
+        this.scrollBottom();
+        //console.log(source)
+
+
+
         // ...
       } else {
         // User is signed out
@@ -61,18 +64,22 @@ export class HomeComponent implements OnInit {
     this.authService.signOut()
   }
 
-  submit(chatId:any) {
+  submit(chatId: any) {
     this.cs.sendMessage(chatId, this.newMsg);
     this.newMsg = '';
   }
 
-  trackByCreated(i:any, msg:any) {
+  trackByCreated(i: any, msg: any) {
     return msg.createdAt;
-}
+  }
 
-sendMessage(){
-  this.cs.sendMessage('thiswillbeuserid','Hello');
-}
+  sendMessage() {
+    this.cs.sendMessage(this.user.uid, 'Im Bob I just lifted 100punds');
+  }
+
+  private scrollBottom() {
+    setTimeout(() => global .scrollTo(0, document.body.scrollHeight), 500);
+  }
 
 
 
