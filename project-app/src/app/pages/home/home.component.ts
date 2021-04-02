@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {  Component, OnInit } from '@angular/core';
 
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { ChatService } from 'src/app/services/chat/chat.service';
 import firebase from "firebase/app";
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { element } from 'protractor';
+import {MatDialog} from '@angular/material/dialog';
 
 
 @Component({
@@ -19,13 +19,13 @@ export class HomeComponent implements OnInit {
   user: any;
 
 
-
   chat$: Observable<any> | undefined;
   newMsg: any;
 
   constructor(public cs: ChatService,
     private authService: AuthService,
     private route: ActivatedRoute,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -39,7 +39,6 @@ export class HomeComponent implements OnInit {
         this.user = user;
         console.log(this.userEmail)
 
-        // const chatId = this.route.snapshot.paramMap.get('id');
         const source = this.cs.get();
 
         this.chat$ = this.cs.joinUsers(source);
@@ -78,12 +77,22 @@ export class HomeComponent implements OnInit {
   }
 
   private scrollBottom() {
-    setTimeout(() => global .scrollTo(0, document.body.scrollHeight), 500);
+    setTimeout(() => window.scrollTo(0, document.body.scrollHeight), 500);
   }
 
 
+  // openCreateMessage() {
+  //   const dialogRef ;
 
-
-
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log(`Dialog result: ${result}`);
+  //   });
+  // }
 
 }
+
+
+
+
+
+

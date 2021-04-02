@@ -19,12 +19,18 @@
 
 /* <!--Angular Material Grid to create 3 columns--> */
 mat-grid-tile {
-  background: lightblue;
+  background: #0B0C10;
 }
 
-.example-card {
-  max-height: max-content;
-  width: 600px;
+.middle-grid{
+  height: fit-content;
+  
+}
+
+.user-card {
+  height:max-content;
+  width:850px;
+  margin: 5px 5px 5px 5px;
 }
 
 .example-header-image {
@@ -38,5 +44,18 @@ mat-grid-tile {
   justify-content: center;
   flex-direction: column;
   width: 250px;
+}
+
+.viewport {
+  height: 850px;
+  width: 900px;
+  border: 1px solid white;
+}
+
+.toolbar {
+  position: sticky;
+  position: -webkit-sticky; /* For macOS/iOS Safari */
+  top: 0; /* Sets the sticky toolbar to be on top */
+  z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
 }
 

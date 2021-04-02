@@ -1,7 +1,7 @@
 <body>
   <p>
     <!--NAVIGATION TOOLBAR-->
-    <mat-toolbar>
+    <mat-toolbar class="toolbar">
 
       <button mat-raised-button mat-icon-button class="" [matMenuTriggerFor]="menu">
         <mat-icon>menu</mat-icon>
@@ -13,47 +13,14 @@
 
     </mat-toolbar>
   </p>
-  <!--CONTAINER -->
 
-  <!-- <ng-container *ngIf="chat$ | async as chat">
-
-    <div class="top">
-      <p>
-        
-      </p>
-    </div>
-
-
-    <div class="chat">
-
-      
-      <div class="msg" *ngFor="let msg of chat.messages; trackBy: trackByCreated">
-
-        <div class="user">
-          
-          <img width="15" src="https://cdn2.iconfinder.com/data/icons/facebook-51/32/FACEBOOK_LINE-01-512.png">
-          <div>{{ msg.user?.email }}</div>
-        </div>
-
-        <p>{{ msg.content }}</p>
-
-      </div>
-    </div>
-
-    <div class="form">
-      <input [(ngModel)]="newMsg" (keydown.enter)="submit(chat.id)">
-
-      <button (click)="submit(chat.id)">Send</button>
-    </div>
-
-  </ng-container> -->
 
   <!--Angular Material Grid to create 3 columns-->
-  <mat-grid-list cols="4" rowHeight="1:2">
+  <mat-grid-list cols="4" rows="2" rowHeight="100%">
     <!--Left Column-->
     <mat-grid-tile colspan='1'>
       <div class="button-column">
-        <button mat-raised-button color="primary">Create Post</button>
+        <button mat-raised-button color="primary" >Create Post</button>
         <br>
         <button mat-raised-button color="primary" routerLink="/home">Home</button>
         <br>
@@ -64,58 +31,38 @@
     </mat-grid-tile>
 
     <!--Middle Column-->
-    <mat-grid-tile colspan='2'>
-      <!--Card-->
-      <mat-card class="example-card">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>Shiba Inu</mat-card-title>
-        </mat-card-header>
-        <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-          <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-            bred for hunting.
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
-        </mat-card-actions> -->
-        <ng-container *ngIf="chat$ | async as chat">
-
-          <div class="top">
-            <p>
-              <!-- https://firestore-megachat.firebaseapp.com/chats/{{ chat.id }} -->
-            </p>
-          </div>
-
-
-          <div class="chat">
-
-
-            <div class="msg" *ngFor="let msg of chat.messages; trackBy: trackByCreated">
-
-              <div class="user">
-                <!-- <img [src]="msg.user?.uid"> -->
-                <img width="15" src="https://cdn2.iconfinder.com/data/icons/facebook-51/32/FACEBOOK_LINE-01-512.png">
+    <mat-grid-tile colspan='2' *ngIf="chat$ | async as chat" class="middle-grid">
+      <mat-list role="list">
+        <cdk-virtual-scroll-viewport itemSize="50" class="viewport">
+          
+          <!--Card-->
+          <mat-card class="user-card" role="listitem" mat-list-item *ngFor="let msg of chat.messages; trackBy: trackByCreated">
+            
+            <!--Card-Header-->
+            <mat-card-header>
+              <div mat-card-avatar><img width="30"
+                  src="https://cdn2.iconfinder.com/data/icons/facebook-51/32/FACEBOOK_LINE-01-512.png"></div>
+              <mat-card-title>
                 <div>{{ msg.user?.email }}</div>
-              </div>
+              </mat-card-title>
+            </mat-card-header>
 
-              <p>{{ msg.content }}</p>
+            <!--Card-Content-->
+            <mat-card-content>
+              <p>
+                {{ msg.content }}
+              </p>
+            </mat-card-content>
+            
+            <!--Card-Actions-->
+            <mat-card-actions>
+              <button mat-button>LIKE</button>
+              <button mat-button>SHARE</button>
+            </mat-card-actions>
 
-            </div>
-          </div>
-
-          <div class="form">
-            <input [(ngModel)]="newMsg" (keydown.enter)="submit(chat.id)">
-
-            <button (click)="submit(chat.id)">Send</button>
-          </div>
-
-        </ng-container>
-      </mat-card>
+          </mat-card>
+        </cdk-virtual-scroll-viewport>
+      </mat-list>
     </mat-grid-tile>
 
     <!--Right Column-->
@@ -134,3 +81,5 @@
   <button mat-menu-item (click)="onSignOut()"> Sign Out</button>
   <button mat-menu-item (click)="sendMessage()"> Send</button>
 </mat-menu>
+
+

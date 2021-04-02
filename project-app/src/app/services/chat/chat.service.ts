@@ -76,9 +76,9 @@ export class ChatService {
       switchMap(c => {
         // Unique User IDs
         chat = c;
-        console.log(c) //TEST------------------
+        //console.log(c) //TEST------------------
         const uids = Array.from(new Set(c.messages.map((v: { uid: any; }) => v.uid)));
-        console.log(uids) //TEST--------------
+        //console.log(uids) //TEST--------------
         // Firestore User Doc Reads
         const userDocs = uids.map(u =>
           this.afs.doc(`users/${u}`).valueChanges()
