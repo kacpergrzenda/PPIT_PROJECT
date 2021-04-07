@@ -16,8 +16,11 @@ import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 
+import { DialogMessageComponent } from '../../dialogs/dialog-message/dialog-message.component';
+
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, DialogMessageComponent],
+  entryComponents: [DialogMessageComponent],
   imports: [
     MatDialogModule,
     ScrollingModule,

@@ -6,6 +6,7 @@ import firebase from "firebase/app";
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import {MatDialog} from '@angular/material/dialog';
+import { DialogMessageComponent } from 'src/app/dialogs/dialog-message/dialog-message.component';
 
 
 @Component({
@@ -63,9 +64,8 @@ export class HomeComponent implements OnInit {
     this.authService.signOut()
   }
 
-  submit(chatId: any) {
-    this.cs.sendMessage(chatId, this.newMsg);
-    this.newMsg = '';
+  submit(chatId: any, message: any) {
+    this.cs.sendMessage(chatId, message);
   }
 
   trackByCreated(i: any, msg: any) {
@@ -80,14 +80,17 @@ export class HomeComponent implements OnInit {
     setTimeout(() => window.scrollTo(0, document.body.scrollHeight), 500);
   }
 
+  openDialog() {
+    let dialogRef = this.dialog.open(DialogMessageComponent, { data: {newMsg: this.newMsg}});
 
-  // openCreateMessage() {
-  //   const dialogRef ;
+    dialogRef.afterClosed().subscribe( result => {
+      if(result == String){
+        this.submit(this.user.uid, result)
+      }   
+    })
+  }
 
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log(`Dialog result: ${result}`);
-  //   });
-  // }
+
 
 }
 

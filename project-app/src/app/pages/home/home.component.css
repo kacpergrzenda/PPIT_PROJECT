@@ -24,13 +24,36 @@ mat-grid-tile {
 
 .middle-grid{
   height: fit-content;
-  
+  background-color: #131517;
+}
+
+.left-grid{
+  height: fit-content;
+  background-color: #131517;
+}
+
+.right-grid{
+  height: fit-content;
+  background-color: #131517;
 }
 
 .user-card {
   height:max-content;
   width:850px;
   margin: 5px 5px 5px 5px;
+  background-color: #131517;
+}
+
+.user-card-content {
+  color: #FFFFFF;
+}
+
+.user-card-title {
+  color: #FFFFFF;
+}
+
+.user-card-actions {
+  color: #C3073F;
 }
 
 .example-header-image {
@@ -50,6 +73,7 @@ mat-grid-tile {
   height: 850px;
   width: 900px;
   border: 1px solid white;
+ 
 }
 
 .toolbar {
@@ -57,5 +81,18 @@ mat-grid-tile {
   position: -webkit-sticky; /* For macOS/iOS Safari */
   top: 0; /* Sets the sticky toolbar to be on top */
   z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+  background-color: #131517;
+}
+
+.white {
+  color: #FFFFFF;
+}
+
+.icon-button-color {
+  background-color: #C3073F;
+}
+
+.black-color {
+ color: #131517;
 }
 

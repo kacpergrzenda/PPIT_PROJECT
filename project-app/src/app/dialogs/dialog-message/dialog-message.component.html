@@ -1,0 +1,6 @@
+<h2 mat-dialog-tile class="black-color"><button mat-icon-button mat-raised-button mat-dialog-close class="dialog-title-button">Close</button></h2>
+<mat-dialog-content class="black-color"><input [(ngModel)]="data.newMsg"></mat-dialog-content>
+<mat-dialog-actions class="black-color">
+    <button  mat-raised-button mat-dialog-close>Close</button>
+    <button  mat-raised-button mat-dialog-close [mat-dialog-close]="data.newMsg">Send</button>
+</mat-dialog-actions>

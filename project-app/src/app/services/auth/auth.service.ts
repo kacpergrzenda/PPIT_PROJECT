@@ -91,8 +91,6 @@ export class AuthService {
     return userRef.set(data, { merge: true });
   }
 
-  
-
   getUser() {
     return this.user.pipe(first()).toPrmise();
   }
