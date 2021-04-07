@@ -16,7 +16,8 @@
   <mat-grid-list cols="1" rowHeight="1:0.1">
     <mat-grid-tile colspan='1'>
       <div class="profilePictureDiv">
-        <img class="profilePicture" src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8cGVyc29ufGVufDB8fDB8&ixlib=rb-1.2.1&w=1000&q=80">
+        <img class="profilePicture" [src]="url">
+        <br>
       </div>
       <div>
         <img src="https://t3.ftcdn.net/jpg/02/89/61/64/360_F_289616456_wwOUZZTsYTOcIxGbwffOS8iP4QatFHa1.jpg" style="width:100%">
@@ -24,16 +25,19 @@
     </mat-grid-tile>
   </mat-grid-list>
 
+  <div>
+    <input type="file" (change)="onselectFile($event)"> 
+  </div>
 
 
   <!--Profile Page Tabs-->
   <mat-tab-group mat-align-tabs="center">
 <!--FIRST TAB-->
-    <mat-tab label="Posts">   
+    <!-- <mat-tab label="Posts">   
       <mat-grid-list cols="1" rowHeight="1:0.5">
-        <mat-grid-tile colspan='1'>
+        <mat-grid-tile colspan='1'> -->
           <!--Profile Card-->
-          <mat-card class="example-card">
+          <!-- <mat-card class="example-card">
             <mat-card-header>
               <div mat-card-avatar class="example-header-image"></div>
               <mat-card-title>Shiba Inu</mat-card-title>
@@ -53,10 +57,10 @@
           </mat-card>
         </mat-grid-tile>
       </mat-grid-list>
-    </mat-tab>
+    </mat-tab> -->
 
 <!--SECOND TAB-->
-    <mat-tab label="Personal Info"> 
+    <!-- <mat-tab label="Personal Info"> 
       <mat-grid-list cols="1" rowHeight="1:0.2">
         <mat-grid-tile colspan='1'>
 
@@ -83,7 +87,7 @@
 
         </mat-grid-tile>
       </mat-grid-list>
-    </mat-tab>
+    </mat-tab> -->
 
   </mat-tab-group>
    
