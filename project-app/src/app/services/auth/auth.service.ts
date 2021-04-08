@@ -1,7 +1,7 @@
 import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/user.model'; // User
-
+import firebase from "firebase/app";
 
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
@@ -30,7 +30,7 @@ export class AuthService {
       switchMap(user => {
           // Logged in
         if (user) {
-          return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+          return this.afs.doc(`users/${user.uid}`).valueChanges();
         } else {
           // Logged out
           return of(null);
@@ -42,6 +42,7 @@ export class AuthService {
   //signUp method is a request to our Firebase Authentication to create a new user   LOCAL STORAGE
   async signUp(email: string, password: string) {
     return this.afAuth.createUserWithEmailAndPassword(email, password)
+    
     }
 
 
@@ -66,21 +67,7 @@ export class AuthService {
     })
   }
 
-  /* Setting up user data when sign in with username/password, 
- sign up with username/password and sign in with social auth  
- provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
-  // SetUserData(user: any) {
-  //   const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
-  //   const userData: User = {
-  //     uid: user.uid,
-  //     email: user.email
-  //   }
-  //   return userRef.set(userData, {
-  //     merge: true
-  //   })
-  // }
-
-  private updateUserData(user: any) {
+  async updateUserData(user: any) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
 
     const data = {
@@ -94,6 +81,27 @@ export class AuthService {
   getUser() {
     return this.user.pipe(first()).toPrmise();
   }
+
+  // getUserData(uid:any){
+  //   const db = firebase.firestore();
+
+  //   const docRef = db.collection('users').doc(uid);
+
+  //    docRef.get().then((doc) => {
+  //     if (doc.exists) {
+  //       console.log("Document data:", doc.data());
+  //       const data = doc.data();
+  //        data;
+  //     } else {
+  //       // doc.data() will be undefined in this case
+  //       console.log("No such document!");
+  //        null;
+  //     }
+  //   }).catch((error) => {
+  //     console.log("Error getting document:", error);
+  //   });
+  
+  // }
 
   private async oAuthLogin(provider: any) {
     const credential = await this.afAuth.signInWithPopup(provider);

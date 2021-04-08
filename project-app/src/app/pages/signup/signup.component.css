@@ -38,3 +38,7 @@ mat-card{
   body {
     background-image: url('https://wallpaperaccess.com/full/1397775.jpg');
   }
+
+  .file-input {
+    display: none;
+  }

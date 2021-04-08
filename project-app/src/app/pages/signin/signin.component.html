@@ -5,7 +5,7 @@
                 <div class="header">
                     <h2>Log In</h2>
                 </div>
-                <form [formGroup]="signinForm" *ngIf="signinForm" (ngSubmit)="onSignin()">
+                <form [formGroup]="signinForm" *ngIf="signinForm" >
                     <div class="email-input">
                         <mat-form-field class="full-width" appearance="outline">
                             <mat-label>Email</mat-label>
@@ -30,7 +30,7 @@
                         </mat-form-field>
                     </div>
                     <div class="text-center">
-                        <button mat-raised-button color="warn" type="submit" [disabled]="!signinForm.valid">
+                        <button mat-raised-button color="warn" type="submit" [disabled]="!signinForm.valid" (click)="onSignin()">
                             Log In
                         </button>
                     </div>

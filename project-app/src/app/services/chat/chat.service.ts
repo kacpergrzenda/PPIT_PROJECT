@@ -50,12 +50,13 @@ export class ChatService {
   }
 
   /* Uses the Firestore arrayUnion method append a new chat message to document. */
-  async sendMessage(chatId: any, content: any) {
+  async sendMessage(chatId: any, content: any, picture: any) {
     const uid = chatId
 
     const data = {
       uid, //uid of the user
       content,
+      picture,
       createdAt: Date.now()
     };
 

@@ -20,19 +20,27 @@
     <!--Left Column-->
     <mat-grid-tile colspan='1' class="left-grid">
       <div class="button-column">
-        <button mat-icon-button mat-raised-button class="icon-button-color" (click)="openDialog()"><mat-icon class="white">create</mat-icon></button>
+        <button mat-icon-button mat-raised-button class="icon-button-color" (click)="openDialog()">
+          <mat-icon class="white">create</mat-icon>
+        </button>
         <br>
         <br>
         <br>
-        <button mat-icon-button mat-raised-button class="icon-button-color" routerLink="/home"><mat-icon class="white">home</mat-icon></button>
+        <button mat-icon-button mat-raised-button class="icon-button-color" routerLink="/home">
+          <mat-icon class="white">home</mat-icon>
+        </button>
         <br>
         <br>
         <br>
-        <button mat-icon-button mat-raised-button class="icon-button-color" routerLink="/profilepage"><mat-icon class="white">person</mat-icon></button>
+        <button mat-icon-button mat-raised-button class="icon-button-color" routerLink="/profilepage">
+          <mat-icon class="white">person</mat-icon>
+        </button>
         <br>
         <br>
         <br>
-        <button mat-icon-button mat-raised-button class="icon-button-color" (click)="onSignOut()"><mat-icon class="white">arrow_back</mat-icon></button>
+        <button mat-icon-button mat-raised-button class="icon-button-color" (click)="onSignOut()">
+          <mat-icon class="white">arrow_back</mat-icon>
+        </button>
       </div>
     </mat-grid-tile>
 
@@ -40,16 +48,16 @@
     <mat-grid-tile colspan='2' *ngIf="chat$ | async as chat" class="middle-grid">
       <mat-list role="list">
         <cdk-virtual-scroll-viewport itemSize="50" class="viewport">
-          
+
           <!--Card-->
-          <mat-card class="user-card" role="listitem" mat-list-item *ngFor="let msg of chat.messages; trackBy: trackByCreated">
-            
+          <mat-card class="user-card" role="listitem" mat-list-item
+            *ngFor="let msg of chat.messages; trackBy: trackByCreated">
+
             <!--Card-Header-->
             <mat-card-header>
-              <div mat-card-avatar><img width="30"
-                  src="https://cdn2.iconfinder.com/data/icons/facebook-51/32/FACEBOOK_LINE-01-512.png"></div>
+              <div mat-card-avatar><img width="30" [src]="msg.user?.profilePicture"></div>
               <mat-card-title class="user-card-title">
-                <div>{{ msg.user?.email }}</div>
+                <div>{{ msg.user?.displayName }}</div>
               </mat-card-title>
             </mat-card-header>
 
@@ -58,8 +66,11 @@
               <p>
                 {{ msg.content }}
               </p>
+              <!-- Picture on the feed -->
+              <span *ngIf="msg.picture"><img mat-card-image width=30px [src]="msg.picture" alt="Photo"></span>
+
             </mat-card-content>
-            
+
             <!--Card-Actions-->
             <mat-card-actions class="user-card-actions">
               <button mat-button>LIKE</button>
@@ -72,7 +83,25 @@
     </mat-grid-tile>
 
     <!--Right Column-->
-    <mat-grid-tile colspan='1' class="right-grid">3</mat-grid-tile>
+    <mat-grid-tile colspan='1' class="right-grid">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{name}}</mat-card-title>
+          <mat-card-subtitle>{{user?.email}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="picture" alt="Photo of profile picture">
+        <mat-card-content>
+          <p>
+            THIS WILL BE THERE HOBBY
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
   </mat-grid-list>
 
 
@@ -81,11 +110,8 @@
 
 <!-- mat-menu-trigger-for -->
 <!-- Gets Triggered When Menu Icon Clicked -->
-<mat-menu #menu="matMenu"  class="black-color">
+<mat-menu #menu="matMenu" class="black-color">
   <button mat-menu-item routerLink="/home">Home</button>
   <button mat-menu-item routerLink="/profilepage"> Profile</button>
   <button mat-menu-item (click)="onSignOut()"> Sign Out</button>
-  <button mat-menu-item (click)="sendMessage()"> Send</button>
 </mat-menu>
-
-

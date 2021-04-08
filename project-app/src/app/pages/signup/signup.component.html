@@ -1,54 +1,71 @@
 <body>
     <div class="main-div">
-<mat-card>
-    <mat-card-content>
-        <div class="header">
-            <h2>SIGNUP</h2>
-        </div>
-        <form [formGroup]="signupForm" *ngIf="signupForm" (ngSubmit)="onSignUp()">
+        <mat-card>
+            <mat-card-content>
+                <div class="header">
+                    <h2>SIGNUP</h2>
+                </div>
+                <form [formGroup]="signupForm" *ngIf="signupForm">
 
-            <div class="row">
-                <mat-form-field class="full-width" appearance="outline">
-                    <mat-label>Username</mat-label>
-                    <input matInput type="text" [formControl]="usernameControl" />
-                    <mat-error *ngIf="usernameControl.invalid">
-                        Username should have at least 6 characters
-                    </mat-error>
-                </mat-form-field>
-            </div>
+                    <div class="row">
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Username</mat-label>
+                            <input matInput type="text" [formControl]="usernameControl" />
+                            <mat-error *ngIf="usernameControl.invalid">
+                                Username should have at least 6 characters
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
 
-            <div class="email-input">
-                <mat-form-field class="full-width" appearance="outline">
-                    <mat-label>Email</mat-label>
-                    <input matInput type="text" [formControl]="emailControl" />
-                    <mat-error *ngIf="emailControl.invalid">
-                        You must enter your email
-                    </mat-error>
-                </mat-form-field>
-            </div>
+                    
+                    <!-- User Upload File -->
+                    <input type="file" class="file-input" (change)="onselectFile($event)" #fileUpload>
 
-            <div class="row">
-                <span class="aLink">Forgot Password?</span>
-                <mat-form-field class="full-width" appearance="outline">
-                    <mat-label>Password</mat-label>
-                    <input matInput [type]="hide ? 'password' : 'text'" [formControl]="passwordControl" required />
-                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                        [attr.aria-pressed]="hide">
-                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                    </button>
-                    <mat-error *ngIf="passwordControl.invalid">
-                        password minimum length 6 characters
-                    </mat-error>
-                </mat-form-field>
-            </div>
+                    <div class="file-upload">
+                        
+                        <span *ngIf="url == null">No file uploaded yet.</span>
+                        <span *ngIf="url">File Uploaded.</span>
 
-            <div class="text-center">
-                <button mat-raised-button color="warn" type="submit" [disabled]="!signupForm.valid">
-                    Sign Up
-                </button>
-            </div>
-        </form>
-    </mat-card-content>
-</mat-card>
-</div>
+                        <button mat-mini-fab color="primary" class="upload-btn" (click)="fileUpload.click()">
+                            <mat-icon>attach_file</mat-icon>
+                        </button>
+                    </div>
+
+
+                    <div class="email-input">
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input matInput type="text" [formControl]="emailControl" />
+                            <mat-error *ngIf="emailControl.invalid">
+                                You must enter your email
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="row">
+                        <span class="aLink">Forgot Password?</span>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Password</mat-label>
+                            <input matInput [type]="hide ? 'password' : 'text'" [formControl]="passwordControl"
+                                required />
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                                [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                            <mat-error *ngIf="passwordControl.invalid">
+                                password minimum length 6 characters
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="text-center">
+                        <button mat-raised-button color="warn" type="submit" [disabled]="!signupForm.valid"
+                            (click)="onSignUp()">
+                            Sign Up
+                        </button>
+                    </div>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
 </body>
