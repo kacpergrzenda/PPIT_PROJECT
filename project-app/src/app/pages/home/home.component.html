@@ -50,24 +50,24 @@
         <cdk-virtual-scroll-viewport itemSize="50" class="viewport">
 
           <!--Card-->
-          <mat-card class="user-card" role="listitem" mat-list-item
+          <mat-card class="message-card" role="listitem" mat-list-item
             *ngFor="let msg of chat.messages; trackBy: trackByCreated">
 
             <!--Card-Header-->
             <mat-card-header>
-              <div mat-card-avatar><img width="30" [src]="msg.user?.profilePicture"></div>
-              <mat-card-title class="user-card-title">
-                <div>{{ msg.user?.displayName }}</div>
+              <div mat-card-avatar><img mat-card-avatar class="message-card-avatar" [src]="msg.user?.profilePicture"></div>
+              <mat-card-title class="message-card-title">
+                <div>@{{ msg.user?.displayName }}</div>
               </mat-card-title>
             </mat-card-header>
 
             <!--Card-Content-->
             <mat-card-content class="user-card-content">
-              <p>
+              <p class="message-card-text">
                 {{ msg.content }}
               </p>
               <!-- Picture on the feed -->
-              <span *ngIf="msg.picture"><img mat-card-image width=30px [src]="msg.picture" alt="Photo"></span>
+              <span *ngIf="msg.picture"><img mat-card-image class="message-card-image" [src]="msg.picture" alt="Photo"></span>
 
             </mat-card-content>
 

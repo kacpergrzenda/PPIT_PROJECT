@@ -11,6 +11,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+  // Variables.
   signupForm: any;//Form variable
   hide = true;
   url: any;

@@ -1,5 +1,9 @@
 
-  body {margin:0;}
+  .body{
+    background-color: #131517;
+    margin: 0;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+  }
 
   
   .example-spacer {
@@ -93,3 +97,207 @@ mat-grid-tile {
   cursor: pointer;
   display: none;
 } */
+
+/* Profile-Card CSS */
+/* Profile-Card CSS */
+/* Profile-Card CSS */
+.profile-card {
+  min-width: 600px;
+  max-width: 600px;
+  max-height: 800px;
+  min-height: 800px;
+  background-color:  #131517;
+  border: 2px solid #4E4E50;
+  padding: 15px;
+}
+
+.profile-card-header {
+  background-color:  #131517;
+  max-height: 150px;
+  min-height: 150px;
+  margin: 5px;
+  border: 2px solid #4E4E50;
+  padding: 5px;
+}
+
+.profile-card-header-button{
+  margin-left: 150px;
+  margin-right: 5px;
+  margin-top: 90px;
+  padding: 10px;
+  color: #C3073F;
+  border: 2px solid #C3073F;
+}
+
+.profile-card-image {
+  max-height: 145px;
+  min-height: 145px;
+  max-width: 145px;
+  min-width: 145px;
+  border: 2px solid #C3073F;
+}
+
+.profile-card-title {
+  color: #FFFFFF;
+  margin-top: 100px;
+}
+
+.profile-card-subtitle {
+  color: #C3073F;
+}
+
+.profile-card-content {
+  min-width: 600px;
+  max-width: 600px;
+  max-height: 630px;
+  min-height: 630px;
+  border: 2px solid #4E4E50;
+  background-color: #131517;
+  overflow-y: scroll;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+.profile-card-content::-webkit-scrollbar {
+  display: none; /* Make the scroll bar invisible */
+}
+
+/* Mssage-Cards CSS */
+/* Mssage-Cards CSS */
+/* Mssage-Cards CSS */
+.message-card{
+  min-width: 550px;
+  max-width: 550px;
+  max-height: 500px;
+  min-height: 80px;
+  margin: 10px 7px 10px 7px;
+  background-color:  #131517;
+  border: 2px solid #C3073F;
+  padding: 15px;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+.message-card-avatar {
+  border: 2px solid #4E4E50;
+}
+
+.message-card-title{
+  margin-top: 10px;
+  color: #4E4E50;
+  /* text-shadow: -1px -1px 0 #4E4E50, 1px -1px 0 #4E4E50, -1px 1px 0 #4E4E50, 1px 1px 0 #4E4E50; */
+}
+
+.message-card-text{
+  color: #FFFFFF;
+  padding: 10px;
+}
+
+.message-card-image {
+  min-width: 300px;
+  max-width: 500px;
+  max-height: 400px;
+  min-height: 80px;
+  padding: 15px;
+  margin: 10px 7px 10px 7px;
+}
+
+/* GRID CSS */
+/* GRID CSS */
+/* GRID CSS */
+.left-grid{
+  background-color:  #131517;
+  border: 2px solid #4E4E50;
+}
+
+.left-grid-button{
+  background-color: #C3073F;
+  color: #FFFFFF;
+}
+
+.left-grid-button-text{
+  background-color: #C3073F;
+  color: #FFFFFF;
+  
+}
+
+.middle-grid{
+  background-color:  #131517;
+  border: 2px solid #4E4E50;
+}
+
+.right-grid{
+  background-color:  #131517;
+  border: 2px solid #4E4E50;
+}
+
+/* TOOLBAR CSS */
+/* TOOLBAR CSS */
+/* TOOLBAR CSS */
+.toolbar{
+  background-color:  #131517;
+  color: #FFFFFF;
+}
+
+.toolbar-button{
+  background-color: #C3073F;
+  color: #FFFFFF;
+}
+
+
+/* INFORMATION CARD CSS */
+/* INFORMATION CARD CSS */
+/* INFORMATION CARD CSS */
+.information-card{
+  min-width: 350px;
+  max-width: 350px;
+  max-height: 750px;
+  min-height: 750px;
+  background-color:  #131517;
+  border: 2px solid #4E4E50;
+  padding: 15px;
+}
+
+.information-card-title{
+  color:#FFFFFF;
+  padding: 5px;
+  margin-left: 60px;
+}
+
+.information-card-content{
+  margin-left: 60px;
+  min-width: 300px;
+  max-width: 300px;
+  max-height: 450px;
+  min-height: 450px;
+  color: #C3073F;
+}
+
+.information-card-form-label{
+  color: #C3073F;
+  font-size:  large;
+  font-weight: bold;
+}
+
+.information-card-form-input{
+  color: #C3073F;
+  font-size:  large;
+  font-weight: bold;
+}
+
+.information-card-form-hint{
+  color: #FFFF;
+}
+
+.information-card-button{
+  margin-left: 75px;
+  margin-right: 5px;
+  margin-top: 30px;
+  padding: 10px;
+  color: #C3073F;
+  border: 2px solid #C3073F;
+}
+
+
+
+
+

@@ -1,5 +1,7 @@
 
-  body {margin:0;}
+  body {
+    background-color: #131517;
+    margin:0;}
 
   
   .example-spacer {
@@ -73,7 +75,10 @@ mat-grid-tile {
   height: 850px;
   width: 900px;
   border: 1px solid white;
- 
+}
+
+.viewport::-webkit-scrollbar {
+  display: none; /* Make the scroll bar invisible */
 }
 
 .toolbar {
@@ -97,4 +102,40 @@ mat-grid-tile {
 }
 
 
+/* Mssage-Cards CSS */
+.message-card{
+  min-width: 885px;
+  max-width: 885px;
+  max-height: 500px;
+  min-height: 80px;
+  margin: 10px 7px 10px 7px;
+  background-color:  #131517;
+  border: 2px solid #C3073F;
+  padding: 15px;
+  word-wrap: break-word;
+  overflow: hidden;
+}
 
+.message-card-avatar {
+  border: 2px solid #4E4E50;
+}
+
+.message-card-title{
+  margin-top: 10px;
+  color: #4E4E50;
+  /* text-shadow: -1px -1px 0 #4E4E50, 1px -1px 0 #4E4E50, -1px 1px 0 #4E4E50, 1px 1px 0 #4E4E50; */
+}
+
+.message-card-text{
+  color: #FFFFFF;
+  padding: 10px;
+}
+
+.message-card-image {
+  min-width: 300px;
+  max-width: 450px;
+  max-height: 450px;
+  min-height: 80px;
+  padding: 15px;
+  margin: 10px 7px 10px 7px;
+}

@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
+    console.log(firebase.auth)
 
 
     /* Authenticate User */
@@ -51,6 +51,12 @@ export class HomeComponent implements OnInit {
         this.user = user;
         const p = user.photoURL;
         //x14Mi51fnqNqU5uNNiDs7YQ8aRh2
+
+         /* Join user Chats to the User */
+         const source = this.cs.get();
+         this.chat$ = this.cs.joinUsers(source);
+ 
+         this.scrollBottom();
 
 
         /* Get User Data from firestore user collection */
@@ -69,11 +75,8 @@ export class HomeComponent implements OnInit {
           console.log("Error getting document:", error);
         });
 
-        /* Join user Chats to the User */
-        const source = this.cs.get();
-        this.chat$ = this.cs.joinUsers(source);
-
-        this.scrollBottom();
+        
+       
 
       } else {
         // User is signed out

@@ -87,15 +87,13 @@ export class AuthService {
 
   //   const docRef = db.collection('users').doc(uid);
 
-  //    docRef.get().then((doc) => {
+  //   return docRef.get().then((doc) => {
   //     if (doc.exists) {
-  //       console.log("Document data:", doc.data());
-  //       const data = doc.data();
-  //        data;
+  //       return doc.data();
   //     } else {
   //       // doc.data() will be undefined in this case
   //       console.log("No such document!");
-  //        null;
+  //       return doc.data();
   //     }
   //   }).catch((error) => {
   //     console.log("Error getting document:", error);

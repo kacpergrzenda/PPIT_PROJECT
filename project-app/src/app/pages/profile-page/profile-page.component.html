@@ -1,23 +1,23 @@
-
-<body>
-    <p>
-      <!-- NAVIGATION TOOLBAR-->
-      <mat-toolbar>
-        <button mat-raised-button mat-icon-button class="" [matMenuTriggerFor]="menu">
-          <mat-icon>menu</mat-icon>
-        </button>
-        <span class="example-spacer"></span>
-        <span>ProfilePage</span>
-        <span class="example-spacer"></span>
-      </mat-toolbar>
-    </p>
+<body class="body">
+  <p>
+    <!-- NAVIGATION TOOLBAR-->
+    <mat-toolbar class="toolbar">
+      <button mat-raised-button mat-icon-button class="toolbar-button" [matMenuTriggerFor]="menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="example-spacer"></span>
+      <span>PROFILE</span>
+      <span class="example-spacer"></span>
+    </mat-toolbar>
+  </p>
 
   <!--Angular Material Grid to create profile background image-->
-  <mat-grid-list cols="1" rowHeight="1:0.1">
+  <!-- <mat-grid-list cols="1" rowHeight="1:0.1">
     <mat-grid-tile colspan='1'>
       <div class="profilePictureDiv">
         <img class="profilePicture" [src]="url">
         <br>
+        
       </div>
       <div>
         <img src="https://t3.ftcdn.net/jpg/02/89/61/64/360_F_289616456_wwOUZZTsYTOcIxGbwffOS8iP4QatFHa1.jpg" style="width:100%">
@@ -27,73 +27,145 @@
 
   <div>
     <input type="file" (change)="onselectFile($event)"> 
-  </div>
+  </div> -->
 
 
-  <!--Profile Page Tabs-->
-  <mat-tab-group mat-align-tabs="center">
-<!--FIRST TAB-->
-    <!-- <mat-tab label="Posts">   
-      <mat-grid-list cols="1" rowHeight="1:0.5">
-        <mat-grid-tile colspan='1'> -->
-          <!--Profile Card-->
-          <!-- <mat-card class="example-card">
-            <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>Shiba Inu</mat-card-title>
-            </mat-card-header>
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-            <mat-card-content>
-              <p>
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
-              </p>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-button>LIKE</button>
-              <button mat-button>SHARE</button>
-            </mat-card-actions>
-          </mat-card>
-        </mat-grid-tile>
-      </mat-grid-list>
-    </mat-tab> -->
 
-<!--SECOND TAB-->
-    <!-- <mat-tab label="Personal Info"> 
-      <mat-grid-list cols="1" rowHeight="1:0.2">
-        <mat-grid-tile colspan='1'>
 
-          <form class="example-form">
-            <mat-form-field appearance="fill" class="example-full-width">
-              <mat-label>Height</mat-label>
-              <input matInput placeholder="Ex. 6ft">
-            </mat-form-field>
-        
-            <mat-form-field appearance="fill" class="example-full-width">
-              <mat-label>Weight</mat-label>
-              <input matInput placeholder="Ex. 80KG">
-            </mat-form-field>
 
-            <mat-form-field appearance="fill">
-              <mat-label>Gender</mat-label>
-              <mat-select>
-                <mat-option value="one">Male</mat-option>
-                <mat-option value="two">Female</mat-option>
-                <mat-option value="three">Attack Helicopter</mat-option>
-              </mat-select>
-            </mat-form-field>
+  <!-- COLUMN PROFILE PAGE -->
+  <mat-grid-list cols="4" rows="2" rowHeight="100%" class="grid-list">
+
+    <!--Left Column-->
+    <mat-grid-tile colspan='1' class="left-grid">
+      <div class="button-column">
+        <button mat-icon-button mat-raised-button class="left-grid-button">
+          <mat-icon>create</mat-icon>
+        </button>
+        <br>
+        <br>
+        <br>
+        <button mat-icon-button mat-raised-button class="left-grid-button" routerLink="/home">
+          <mat-icon>home</mat-icon>
+        </button>
+        <br>
+        <br>
+        <br>
+        <button mat-icon-button mat-raised-button class="left-grid-button" routerLink="/profilepage">
+          <mat-icon>person</mat-icon>
+        </button>
+        <br>
+        <br>
+        <br>
+        <button mat-icon-button mat-raised-button class="left-grid-button" (click)="onSignOut()">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+      </div>
+    </mat-grid-tile>
+
+    <!--Middle Column-->
+    <mat-grid-tile colspan='2' class="middle-grid">
+
+      <!--Card-->
+      <mat-card class="profile-card">
+
+
+        <!--Card-Header-->
+        <mat-card-header class="profile-card-header">
+          <img class="profile-card-image" mat-card-avatar [src]="picture" alt="Photo of User">
+
+          <mat-card-title class="profile-card-title">@{{name}}</mat-card-title>
+          <mat-card-subtitle class="profile-card-subtitle">{{userEmail}}</mat-card-subtitle>
+          <button class="profile-card-header-button" mat-button>Edit Profile</button>
+        </mat-card-header>
+
+        <!--Card-Content-->
+        <mat-card-content class="profile-card-content" *ngIf="chat$ | async as chat">
+          <div *ngFor="let msg of chat.messages;">
+            <mat-card class="message-card" role="listitem" mat-list-item *ngIf="msg.uid == userUid">
+
+              <!--Card-Header-->
+              <mat-card-header>
+                <img mat-card-avatar class="message-card-avatar" [src]="msg.user?.profilePicture">
+                <mat-card-title class="message-card-title">
+                  <div>@{{ msg.user?.displayName }}</div>
+                </mat-card-title>
+              </mat-card-header>
+
+              <!--Card-Content-->
+              <mat-card-content>
+                <p class="message-card-text">
+                  {{ msg.content }}
+                </p>
+                <!-- Picture on the feed -->
+                <span *ngIf="msg.picture"><img class="message-card-image" mat-card-image [src]="msg.picture"
+                    alt="Photo"></span>
+
+              </mat-card-content>
+
+            </mat-card>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+
+    </mat-grid-tile>
+
+    <!--Right Column-->
+    <mat-grid-tile colspan='1' class="right-grid">
+      <!--User Information Card Page Tabs-->
+      <mat-card class="information-card">
+
+        <!--Card-Header-->
+        <mat-card-header>
+          <mat-card-title class="information-card-title">
+            <h2>USER INFORMATION</h2>
+          </mat-card-title>
+        </mat-card-header>
+
+        <!--Card-Content-->
+        <mat-card-content class="information-card-content">
+
+          <form [formGroup]="informationForm" class="information-card-form">
+            <div>
+              <mat-form-field class="full-width" appearance="outline" class="information-card-form-field">
+                <mat-label class="information-card-form-label">{{height}}</mat-label>
+                <input matInput type="number" [formControl]="heightControl" class="information-card-form-input" />
+                <mat-icon matSuffix>height</mat-icon>
+                <mat-hint class="information-card-form-hint">Height (CM)</mat-hint>
+              </mat-form-field>
+            </div>
           </form>
 
-        </mat-grid-tile>
-      </mat-grid-list>
-    </mat-tab> -->
+          <form [formGroup]="informationForm">
+            <div>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label class="information-card-form-label">{{weight}}</mat-label>
+                <input matInput type="number" [formControl]="weightControl" class="information-card-form-input" />
+                <mat-icon matSuffix>fitness_center</mat-icon>
+                <mat-hint class="information-card-form-hint">Weight (KG)</mat-hint>
+              </mat-form-field>
+            </div>
+          </form>
 
-  </mat-tab-group>
-   
-</body>
-  
-  
+          <form [formGroup]="informationForm">
+            <div>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label class="information-card-form-label">{{gender}}</mat-label>
+                <input matInput type="text" [formControl]="genderControl" class="information-card-form-input" />
+                <mat-icon matSuffix>wc</mat-icon>
+                <mat-hint class="information-card-form-hint">Gender</mat-hint>
+              </mat-form-field>
+            </div>
+          </form>
+
+          <button class="information-card-button" mat-button (click)="onSaveProfile()">Save Profile</button>
+        </mat-card-content>
+
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+
   <!-- mat-menu-trigger-for -->
   <!-- Gets Triggered When Menu Icon Clicked -->
   <mat-menu #menu="matMenu">
@@ -102,4 +174,4 @@
     <button mat-menu-item (click)="onSignOut()"> Sign Out</button>
   </mat-menu>
 
-
+</body>
