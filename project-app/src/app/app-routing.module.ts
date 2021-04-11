@@ -18,12 +18,20 @@ const routes: Routes = [
     loadChildren: () => import('./../app/pages/home/home.module').then(module => module.HomeModule),  canActivate: [AuthGuard]
   },
   {
+    path: '',
+    loadChildren: () => import('./../app/pages/home/home.module').then(module => module.HomeModule),  canActivate: [AuthGuard]
+  },
+  {
     path: 'menu',
     loadChildren: () => import('./../app/pages/menu/menu.module').then(module => module.MenuModule),
   },
   {
     path: 'profilepage',
-    loadChildren: () => import('./../app/pages/profile-page/profile-page.module').then(module => module.ProfilePageModule),
+    loadChildren: () => import('./../app/pages/profile-page/profile-page.module').then(module => module.ProfilePageModule), canActivate: [AuthGuard]
+  },
+  {
+    path: 'exercise',
+    loadChildren: () => import('./../app/pages/exercise/exercise.module').then(module => module.ExerciseModule), canActivate: [AuthGuard]
   }
 ];
 

@@ -5,33 +5,11 @@
       <button mat-raised-button mat-icon-button class="toolbar-button" [matMenuTriggerFor]="menu">
         <mat-icon>menu</mat-icon>
       </button>
-      <span class="example-spacer"></span>
+      <span class="spacer"></span>
       <span>PROFILE</span>
-      <span class="example-spacer"></span>
+      <span class="spacer"></span>
     </mat-toolbar>
   </p>
-
-  <!--Angular Material Grid to create profile background image-->
-  <!-- <mat-grid-list cols="1" rowHeight="1:0.1">
-    <mat-grid-tile colspan='1'>
-      <div class="profilePictureDiv">
-        <img class="profilePicture" [src]="url">
-        <br>
-        
-      </div>
-      <div>
-        <img src="https://t3.ftcdn.net/jpg/02/89/61/64/360_F_289616456_wwOUZZTsYTOcIxGbwffOS8iP4QatFHa1.jpg" style="width:100%">
-      </div>
-    </mat-grid-tile>
-  </mat-grid-list>
-
-  <div>
-    <input type="file" (change)="onselectFile($event)"> 
-  </div> -->
-
-
-
-
 
   <!-- COLUMN PROFILE PAGE -->
   <mat-grid-list cols="4" rows="2" rowHeight="100%" class="grid-list">
@@ -57,6 +35,12 @@
         <br>
         <br>
         <br>
+        <button mat-icon-button mat-raised-button class="left-grid-button" routerLink="/exercise">
+          <mat-icon>video_library</mat-icon>
+        </button>
+        <br>
+        <br>
+        <br>
         <button mat-icon-button mat-raised-button class="left-grid-button" (click)="onSignOut()">
           <mat-icon>arrow_back</mat-icon>
         </button>
@@ -68,7 +52,6 @@
 
       <!--Card-->
       <mat-card class="profile-card">
-
 
         <!--Card-Header-->
         <mat-card-header class="profile-card-header">
@@ -107,8 +90,6 @@
           </div>
         </mat-card-content>
       </mat-card>
-
-
     </mat-grid-tile>
 
     <!--Right Column-->
@@ -170,7 +151,8 @@
   <!-- Gets Triggered When Menu Icon Clicked -->
   <mat-menu #menu="matMenu">
     <button mat-menu-item routerLink="/home">Home</button>
-    <button mat-menu-item routerLink="/profilepage"> Profile</button>
+    <button mat-menu-item routerLink="/profilepage">Profile</button>
+    <button mat-menu-item routerLink="/exercise">Exercise</button>
     <button mat-menu-item (click)="onSignOut()"> Sign Out</button>
   </mat-menu>
 

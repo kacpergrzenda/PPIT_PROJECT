@@ -1,0 +1,143 @@
+.body{
+    background-color: #131517;
+    margin: 0;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+
+
+/* TOOLBAR CSS */
+/* TOOLBAR CSS */
+/* TOOLBAR CSS */
+.toolbar{
+background-color:  #131517;
+color: #FFFFFF;
+}
+
+.toolbar-button{
+background-color: #C3073F;
+color: #FFFFFF;
+}
+
+/* GRID CSS */
+/* GRID CSS */
+/* GRID CSS */
+.left-grid{
+background-color:  #131517;
+border: 2px solid #4E4E50;
+}
+
+.left-grid-button{
+background-color: #C3073F;
+color: #FFFFFF;
+}
+
+.left-grid-button-text{
+background-color: #C3073F;
+color: #FFFFFF;
+}
+
+.middle-grid{
+background-color:  #131517;
+border: 2px solid #4E4E50;
+}
+
+.right-grid{
+background-color:  #131517;
+border: 2px solid #4E4E50;
+}
+
+/* RECOMMENDED CARD CSS */
+/* RECOMMENDED CARD CSS */
+/* RECOMMENDED CARD CSS */
+.recommended-card{
+    min-width: 700px;
+    max-width: 700px;
+    max-height: 750px;
+    min-height: 750px;
+    background-color:  #131517;
+    border: 2px solid #4E4E50;
+    padding: 15px;
+  }
+
+
+.recommended-card-title{
+    color:#FFFFFF;
+    padding: 5px;
+    margin-left: 190px;
+}
+
+.recommended-card-content{
+    margin-top: 5px;
+    margin-left: 25px;
+    min-width: 650px;
+    max-width: 650px;
+    max-height: 650px;
+    min-height: 650px;
+    border: 2px solid #4E4E50;
+    background-color: #131517;
+    overflow-y: scroll;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+  }
+
+  .recommended-card-content::-webkit-scrollbar {
+    display: none; /* Make the scroll bar invisible */
+  }
+
+/* HOBBY CARD CSS */
+/* HOBBY CARD CSS */
+/* HOBBY CARD CSS */
+.hobby-card {
+    min-width: 350px;
+    max-width: 350px;
+    max-height: 500px;
+    min-height: 500px;
+    background-color:  #131517;
+    border: 2px solid #4E4E50;
+    padding: 15px;
+}
+
+.hobby-card-title{
+    color:#FFFFFF;
+    padding: 5px;
+    margin-left: 65px;
+}
+
+.hobby-card-content{
+    margin-left: 15px;
+    min-width: 320px;
+    max-width: 320px;
+    max-height: 410px;
+    min-height: 410px;
+    color: #C3073F;
+    border: 2px solid #4E4E50;
+  }
+
+  .hobby-card-checkbox{
+    color: #C3073F;
+    padding: 30px;
+    margin-left: 100px;
+    margin-top: 39px;
+    font-size: large;
+    font-weight: bold;
+}
+
+/* VIDEO CARD CSS */
+/* VIDEO CARD CSS */
+/* VIDEO CARD CSS */
+
+.video-card{
+    min-width: 560px;
+    max-width: 560px;
+    max-height: 315px;
+    min-height: 315px;
+    background-color:  #131517;
+    border: 2px solid #C3073F;
+    padding: 15px;
+    margin-left: 26px;
+    margin-top: 5px;
+}

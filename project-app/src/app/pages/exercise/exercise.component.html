@@ -1,0 +1,147 @@
+<body class="body">
+    <p>
+        <!-- NAVIGATION TOOLBAR-->
+        <mat-toolbar class="toolbar">
+            <button mat-raised-button mat-icon-button class="toolbar-button" [matMenuTriggerFor]="menu">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span class="spacer"></span>
+            <span>EXERCISE</span>
+            <span class="spacer"></span>
+        </mat-toolbar>
+    </p>
+
+    <!-- COLUMN EXERCISE PAGE -->
+    <mat-grid-list cols="4" rows="2" rowHeight="100%" class="grid-list">
+
+        <!--Left Column-->
+        <mat-grid-tile colspan='1' class="left-grid">
+            <div class="button-column">
+                <button mat-icon-button mat-raised-button class="left-grid-button" routerLink="/home">
+                    <mat-icon>home</mat-icon>
+                </button>
+                <br>
+                <br>
+                <br>
+                <button mat-icon-button mat-raised-button class="left-grid-button" routerLink="/profilepage">
+                    <mat-icon>person</mat-icon>
+                </button>
+                <br>
+                <br>
+                <br>
+                <button mat-icon-button mat-raised-button class="left-grid-button" routerLink="/exercise">
+                    <mat-icon>video_library</mat-icon>
+                </button>
+                <br>
+                <br>
+                <br>
+                <button mat-icon-button mat-raised-button class="left-grid-button" (click)="onSignOut()">
+                    <mat-icon>arrow_back</mat-icon>
+                </button>
+            </div>
+        </mat-grid-tile>
+
+        <!--Middle Column-->
+        <mat-grid-tile colspan='2' class="middle-grid">
+
+            <!--Card-->
+            <mat-card class="recommended-card">
+
+                <!--Card-Header-->
+                <mat-card-header>
+                    <mat-card-title class="recommended-card-title">
+                        <h2>RECOMMENDED EXERCISES</h2>
+                    </mat-card-title>
+                </mat-card-header>
+
+                <mat-card-content class="recommended-card-content" *ngIf="allVideo">
+
+                    <!-- Swimming-->
+                    <div *ngFor="let url of allVideo">
+                        <div *ngIf="swimming == true && url.type === 'swimming'">
+                            <!-- Video Card-->
+                            <mat-card class="video-card">
+                                <mat-card-content >
+                                    <div>
+                                        <youtube-player [width]="560" [height]="315" videoId="{{url.video}}"
+                                            suggestedQuality="highres"></youtube-player>
+                                    </div>
+                                </mat-card-content>
+                            </mat-card>
+                        </div>
+                    </div>
+
+                     <!-- Weight-->
+                    <div *ngFor="let url of allVideo">
+                        <div *ngIf="weight == true && url.type === 'weight'">
+                            <!-- Video Card-->
+                            <mat-card class="video-card">
+                                <mat-card-content >
+                                    <div>
+                                        <youtube-player [width]="560" [height]="315" videoId="{{url.video}}"
+                                            suggestedQuality="highres"></youtube-player>
+                                    </div>
+                                </mat-card-content>
+                            </mat-card>
+                        </div>
+                    </div>
+
+                     <!-- Running -->
+                    <div *ngFor="let url of allVideo">
+                        <div *ngIf="running == true && url.type === 'running'">
+                            <!-- Video Card-->
+                            <mat-card class="video-card">
+                                <mat-card-content >
+                                    <div>
+                                        <youtube-player [width]="560" [height]="315" videoId="{{url.video}}"
+                                            suggestedQuality="highres"></youtube-player>
+                                    </div>
+                                </mat-card-content>
+                            </mat-card>
+                        </div>
+                    </div>
+                </mat-card-content>
+
+            </mat-card>
+        </mat-grid-tile>
+
+        <!--Right Column-->
+        <mat-grid-tile colspan='1' class="right-grid">
+
+            <!--Card Page Tabs-->
+            <mat-card class="hobby-card">
+
+                <!--Card-Header-->
+                <mat-card-header>
+                    <mat-card-title class="hobby-card-title">
+                        <h2>PICK YOUR HOBBY</h2>
+                    </mat-card-title>
+                </mat-card-header>
+
+                <!--Card-Content-->
+                <mat-card-content class="hobby-card-content">
+                    <div><mat-checkbox class="hobby-card-checkbox" [(ngModel)]="running">Running</mat-checkbox></div>
+                    <div><mat-checkbox class="hobby-card-checkbox" [(ngModel)]="swimming">Swimming</mat-checkbox></div>
+                    <div><mat-checkbox class="hobby-card-checkbox" [(ngModel)]="weight">Weight</mat-checkbox></div>
+                </mat-card-content>
+
+            </mat-card>
+        </mat-grid-tile>
+
+    </mat-grid-list>
+
+
+
+
+
+
+
+    <!-- mat-menu-trigger-for -->
+    <!-- Gets Triggered When Menu Icon Clicked -->
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/home">Home</button>
+        <button mat-menu-item routerLink="/profilepage">Profile</button>
+        <button mat-menu-item routerLink="/exercise">Exercise</button>
+        <button mat-menu-item (click)="onSignOut()"> Sign Out</button>
+    </mat-menu>
+</body>

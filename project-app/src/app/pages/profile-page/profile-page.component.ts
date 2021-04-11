@@ -4,12 +4,10 @@ import 'firebase/auth';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { ChatService } from 'src/app/services/chat/chat.service';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { AngularFireAuth } from '@angular/fire/auth';
 
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable, of } from 'rxjs';
-import { first, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-profile-page',
@@ -48,7 +46,6 @@ export class ProfilePageComponent implements OnInit {
     public cs: ChatService, // Chat Ervice
     private afs: AngularFirestore, //FireStore service 
     private snackBar: MatSnackBar,
-    private afAuth: AngularFireAuth, //Firebase Auth Service
   ) { }
 
   ngOnInit(): void {
