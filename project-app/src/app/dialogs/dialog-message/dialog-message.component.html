@@ -1,19 +1,25 @@
-<h2 mat-dialog-tile class="black-color"><button mat-icon-button mat-raised-button mat-dialog-close class="dialog-title-button">Close</button></h2>
-<mat-dialog-content class="black-color">
-    <input [(ngModel)]="data.newMsg">
-    <input type="file" class="file-input" (change)="onselectFile($event)" #fileUpload>
-
-    <div class="file-upload">
-        
-        <span *ngIf="dialogPicture == null">No file uploaded yet.</span>
-        <span *ngIf="dialogPicture"><img mat-card-image [src]="dialogPicture" alt="Photo of profile picture"></span>
-
-        <button mat-mini-fab color="primary" class="upload-btn" (click)="fileUpload.click()">
-            <mat-icon>attach_file</mat-icon>
+<div class="dialog">
+    <h2 mat-dialog-tile class="black-color">
+        <button mat-icon-button mat-raised-button mat-dialog-close class="dialog-button">
+            <mat-icon>close</mat-icon>
         </button>
-    </div>
-</mat-dialog-content>
-<mat-dialog-actions class="black-color">
-    <button  mat-raised-button mat-dialog-close>Close</button>
-    <button  mat-raised-button mat-dialog-close [mat-dialog-close]="[data.newMsg, data.dialogPicture]">Send</button>
-</mat-dialog-actions>
+    </h2>
+    <mat-dialog-content class="dialog-content">
+        <textarea  input matinput [(ngModel)]="data.newMsg" class="dialog-input-message"></textarea>
+        <input type="file" class="file-input" (change)="onselectFile($event)" #fileUpload >
+
+        <div class="file-upload" class="dialog-text-upload">
+
+            <span *ngIf="dialogPicture == null" >No file uploaded yet.</span>
+            <span *ngIf="dialogPicture"><img mat-card-image [src]="dialogPicture" alt="Photo of profile picture"></span>
+
+            <button mat-mini-fab color="primary" class="upload-btn" (click)="fileUpload.click()" class="dialog-button">
+                <mat-icon>attach_file</mat-icon>
+            </button>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions class="black-color">
+        <button mat-raised-button mat-dialog-close class="dialog-button-bottom">Close</button>
+        <button mat-raised-button mat-dialog-close [mat-dialog-close]="[data.newMsg, data.dialogPicture]" class="dialog-button-bottom">Send</button>
+    </mat-dialog-actions>
+</div>

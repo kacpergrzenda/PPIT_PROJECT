@@ -1,51 +1,52 @@
-<body>
+<body class="body">
   <p>
     <!--NAVIGATION TOOLBAR-->
     <mat-toolbar class="toolbar">
 
-      <button mat-raised-button mat-icon-button class="icon-button-color" [matMenuTriggerFor]="menu">
-        <mat-icon class="white">menu</mat-icon>
+      <button mat-raised-button mat-icon-button class="toolbar-button" [matMenuTriggerFor]="menu">
+        <mat-icon >menu</mat-icon>
       </button>
 
-      <span class="example-spacer"></span>
-      <span class="white">HOME</span>
-      <span class="example-spacer"></span>
+      <span class="spacer"></span>
+      <span >HOME</span>
+      <span class="spacer"></span>
 
     </mat-toolbar>
   </p>
 
 
   <!--Angular Material Grid to create 3 columns-->
-  <mat-grid-list cols="4" rows="2" rowHeight="100%" class="black-color">
+  <mat-grid-list cols="4" rows="2" rowHeight="100%" >
+
     <!--Left Column-->
     <mat-grid-tile colspan='1' class="left-grid">
-      <div class="button-column">
-        <button mat-icon-button mat-raised-button class="icon-button-color" (click)="openDialog()">
-          <mat-icon class="white">create</mat-icon>
+      <div>
+        <button mat-icon-button mat-raised-button class="left-grid-button" (click)="openDialog()">
+          <mat-icon>create</mat-icon>
         </button>
         <br>
         <br>
         <br>
-        <button mat-icon-button mat-raised-button class="icon-button-color" routerLink="/home">
-          <mat-icon class="white">home</mat-icon>
+        <button mat-icon-button mat-raised-button class="left-grid-button" routerLink="/home">
+          <mat-icon >home</mat-icon>
         </button>
         <br>
         <br>
         <br>
-        <button mat-icon-button mat-raised-button class="icon-button-color" routerLink="/profilepage">
-          <mat-icon class="white">person</mat-icon>
+        <button mat-icon-button mat-raised-button class="left-grid-button" routerLink="/profilepage">
+          <mat-icon >person</mat-icon>
         </button>
         <br>
         <br>
         <br>
-        <button mat-icon-button mat-raised-button class="icon-button-color" routerLink="/exercise">
-          <mat-icon class="white">video_library</mat-icon>
+        <button mat-icon-button mat-raised-button class="left-grid-button" routerLink="/exercise">
+          <mat-icon >video_library</mat-icon>
         </button>
         <br>
         <br>
         <br>
-        <button mat-icon-button mat-raised-button class="icon-button-color" (click)="onSignOut()">
-          <mat-icon class="white">arrow_back</mat-icon>
+        <button mat-icon-button mat-raised-button class="left-grid-button" (click)="onSignOut()">
+          <mat-icon >arrow_back</mat-icon>
         </button>
       </div>
     </mat-grid-tile>
@@ -53,7 +54,7 @@
     <!--Middle Column-->
     <mat-grid-tile colspan='2' *ngIf="chat$ | async as chat" class="middle-grid">
       <mat-list role="list">
-        <cdk-virtual-scroll-viewport itemSize="50" class="viewport">
+        <cdk-virtual-scroll-viewport itemSize="50" class="scroll-viewport">
 
           <!--Card-->
           <mat-card class="message-card" role="listitem" mat-list-item
@@ -68,7 +69,7 @@
             </mat-card-header>
 
             <!--Card-Content-->
-            <mat-card-content class="user-card-content">
+            <mat-card-content class="message-card-content">
               <p class="message-card-text">
                 {{ msg.content }}
               </p>
@@ -78,7 +79,7 @@
             </mat-card-content>
 
             <!--Card-Actions-->
-            <mat-card-actions class="user-card-actions">
+            <mat-card-actions class="message-card-actions">
               <button mat-button>LIKE</button>
               <button mat-button>SHARE</button>
             </mat-card-actions>
@@ -90,22 +91,25 @@
 
     <!--Right Column-->
     <mat-grid-tile colspan='1' class="right-grid">
-      <mat-card class="example-card">
+
+      <!--User Profile Card Page Tabs-->
+      <mat-card class="profile-card">
+
+        <!--Card-Header-->
         <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>{{name}}</mat-card-title>
-          <mat-card-subtitle>{{user?.email}}</mat-card-subtitle>
+          <img class="profile-card-image" mat-card-avatar [src]="picture" alt="Photo of User">
+          <mat-card-title class="profile-card-title">{{name}}</mat-card-title>
+          <mat-card-subtitle class="profile-card-subtitle">{{user?.email}}</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image [src]="picture" alt="Photo of profile picture">
+        
+
+        <!--Card-Content-->
         <mat-card-content>
           <p>
             THIS WILL BE THERE HOBBY
           </p>
         </mat-card-content>
-        <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
-        </mat-card-actions>
+
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>

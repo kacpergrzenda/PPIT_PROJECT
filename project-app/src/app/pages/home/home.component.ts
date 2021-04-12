@@ -102,12 +102,12 @@ export class HomeComponent implements OnInit {
 
   /* Creates a Dialog that allows user to send a message. */
   openDialog() {
-    let dialogRef = this.dialog.open(DialogMessageComponent, { data: { newMsg: this.newMsg, dialogPicture: this.dialogPicture  }});
+    let dialogRef = this.dialog.open(DialogMessageComponent, { data: { newMsg: this.newMsg, dialogPicture: this.dialogPicture}});
     console.log(dialogRef)
     dialogRef.afterClosed().subscribe(result => {
 
       /* If message isnt a null submit request to send*/
-      if (result != null || result < 5) {
+      if (result != null || result > 5) {
         console.log(result[0] + " this is two" +result[1])
         this.submit(this.user.uid, result[0], result[1])
       }

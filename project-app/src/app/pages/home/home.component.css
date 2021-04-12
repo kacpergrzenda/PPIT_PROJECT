@@ -1,111 +1,53 @@
 
-  body {
-    background-color: #131517;
-    margin:0;}
+.body{
+  background-color: #131517;
+  margin: 0;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
 
   
-  .example-spacer {
-    flex: 1 1 auto;
-  }
-
-  .focus {
-    outline: none !important;
-    border-color: #719ECE;
-    box-shadow: 0 0 10px #719ECE;
+.spacer {
+  flex: 1 1 auto;
 }
 
-
-* {
-  box-sizing: border-box;
+.focus {
+  outline: none !important;
+  border-color: #719ECE;
+  box-shadow: 0 0 10px #719ECE;
 }
 
-/* <!--Angular Material Grid to create 3 columns--> */
-mat-grid-tile {
-  background: #0B0C10;
-}
-
-.middle-grid{
-  height: fit-content;
-  background-color: #131517;
-}
-
-.left-grid{
-  height: fit-content;
-  background-color: #131517;
-}
-
-.right-grid{
-  height: fit-content;
-  background-color: #131517;
-}
-
-.user-card {
-  height:max-content;
-  width:850px;
-  margin: 5px 5px 5px 5px;
-  background-color: #131517;
-}
-
-.user-card-content {
-  color: #FFFFFF;
-}
-
-.user-card-title {
-  color: #FFFFFF;
-}
-
-.user-card-actions {
-  color: #C3073F;
-}
-
-.example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
-}
-
-
-.button-column {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  width: 250px;
-}
-
-.viewport {
+/* SCROLL CSS */
+/* SCROLL CSS */
+/* SCROLL CSS */
+.scroll-viewport {
   height: 850px;
   width: 900px;
-  border: 1px solid white;
+  border: 2px solid #4E4E50;
 }
 
-.viewport::-webkit-scrollbar {
+.scroll-viewport::-webkit-scrollbar {
   display: none; /* Make the scroll bar invisible */
 }
 
-.toolbar {
-  position: sticky;
-  position: -webkit-sticky; /* For macOS/iOS Safari */
-  top: 0; /* Sets the sticky toolbar to be on top */
-  z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
-  background-color: #131517;
-}
-
-.white {
+/* TOOLBAR CSS */
+/* TOOLBAR CSS */
+/* TOOLBAR CSS */
+.toolbar{
+  background-color:  #131517;
   color: #FFFFFF;
 }
 
-.icon-button-color {
+.toolbar-button{
   background-color: #C3073F;
+  color: #FFFFFF;
 }
 
-.black-color {
- color: #131517;
-}
-
-
-/* Mssage-Cards CSS */
+/* Message-Card CSS */
+/* Message-Card CSS */
+/* Message-Card CSS */
 .message-card{
-  min-width: 885px;
-  max-width: 885px;
+  min-width: 850px;
+  max-width: 850px;
   max-height: 500px;
   min-height: 80px;
   margin: 10px 7px 10px 7px;
@@ -138,4 +80,66 @@ mat-grid-tile {
   min-height: 80px;
   padding: 15px;
   margin: 10px 7px 10px 7px;
+}
+
+.message-card-actions {
+  color: #C3073F;
+}
+
+/* Profile-Card CSS */
+/* Profile-Card CSS */
+/* Profile-Card CSS */
+.profile-card{
+  min-width: 300px;
+  max-width: 300px;
+  max-height: 500px;
+  min-height: 500px;
+  background-color:  #131517;
+  border: 2px solid #4E4E50;
+}
+
+.profile-card-image {
+  max-height: 50px;
+  min-height: 50px;
+  max-width: 50px;
+  min-width: 50px;
+  border: 2px solid #C3073F;
+}
+
+.profile-card-title {
+  color: #FFFFFF;
+  margin-top: 10px;
+}
+
+.profile-card-subtitle {
+  color: #C3073F;
+}
+
+/* GRID CSS */
+/* GRID CSS */
+/* GRID CSS */
+.left-grid{
+  background-color:  #131517;
+  border: 2px solid #4E4E50;
+}
+
+.left-grid-button{
+  background-color: #C3073F;
+  color: #FFFFFF;
+}
+
+.left-grid-button-text{
+  background-color: #C3073F;
+  color: #FFFFFF;
+  
+}
+
+.middle-grid{
+  background-color:  #131517;
+  border: 2px solid #4E4E50;
+}
+
+.right-grid{
+  background-color:  #131517;
+  border: 2px solid #4E4E50;
 }
