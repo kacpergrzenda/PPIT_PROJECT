@@ -36,9 +36,30 @@ mat-card{
   }
 
   body {
-    background-image: url('https://wallpaperaccess.com/full/1397775.jpg');
+    background-color: black;
   }
 
   .file-input {
     display: none;
   }
+
+  .styleMatCard{
+    width: 50%;
+    height: 60%;
+    margin: 10px 7px 10px 7px;
+    background-color:  #131517;
+    border: 2px solid #C3073F;
+    padding: 15px;
+    word-wrap: break-word;
+    overflow: hidden;
+    color: white;
+  }
+
+  .labelText{
+    color: white;
+}
+
+.logInButton{
+    background-color: #C3073F;
+    color: white;
+}
