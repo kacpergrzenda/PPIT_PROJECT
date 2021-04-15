@@ -1,0 +1,24 @@
+<div class="dialog">
+    <!-- Dialog Title-->
+    <h2 mat-dialog-tile >
+        <button mat-icon-button mat-raised-button mat-dialog-close class="dialog-button">
+            <mat-icon>close</mat-icon>
+        </button>
+        <span class="dialog-title">Add Video</span>
+    </h2>
+
+    <!-- Dialog Content-->
+    <mat-dialog-content>
+        <span class="dialog-text">URL:</span>
+        <input matinput [(ngModel)]="data.addvideourl" class="dialog-input-url">
+        <br>
+        <span class="dialog-text">TYPE:</span>
+        <input matinput [(ngModel)]="data.videotype" class="dialog-input-type">
+
+    </mat-dialog-content>
+
+    <!-- Dialog Actions-->
+    <mat-dialog-actions>
+        <button mat-raised-button mat-dialog-close [mat-dialog-close]="[data.addvideourl, data.videotype]" class="dialog-button-bottom">Add</button>
+    </mat-dialog-actions>
+</div>

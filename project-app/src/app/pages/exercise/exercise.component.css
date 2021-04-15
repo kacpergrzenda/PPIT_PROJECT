@@ -88,14 +88,17 @@ border: 2px solid #4E4E50;
     display: none; /* Make the scroll bar invisible */
   }
 
+  .recommended-card-header-button{
+    color: #C3073F;
+  border: 2px solid #C3073F;
+  }
+
 /* HOBBY CARD CSS */
 /* HOBBY CARD CSS */
 /* HOBBY CARD CSS */
 .hobby-card {
-    min-width: 350px;
-    max-width: 350px;
-    max-height: 500px;
-    min-height: 500px;
+    width:70%;
+    height: 50%;
     background-color:  #131517;
     border: 2px solid #4E4E50;
     padding: 15px;
@@ -109,10 +112,8 @@ border: 2px solid #4E4E50;
 
 .hobby-card-content{
     margin-left: 15px;
-    min-width: 320px;
-    max-width: 320px;
-    max-height: 410px;
-    min-height: 410px;
+    width: 90%;
+    height: 80%;
     color: #C3073F;
     border: 2px solid #4E4E50;
   }
@@ -120,7 +121,7 @@ border: 2px solid #4E4E50;
   .hobby-card-checkbox{
     color: #C3073F;
     padding: 30px;
-    margin-left: 100px;
+    margin-left: 80px;
     margin-top: 39px;
     font-size: large;
     font-weight: bold;
@@ -140,4 +141,26 @@ border: 2px solid #4E4E50;
     padding: 15px;
     margin-left: 26px;
     margin-top: 5px;
+}
+
+.video-card-delete-button{
+  color: #C3073F;
+  border: 2px solid #C3073F;
+  margin-left: 40%;
+}
+
+/* ADDVIDEO CARD CSS */
+/* ADDVIDEO CARD CSS */
+/* ADDVIDEO CARD CSS */
+
+.video-card{
+  min-width: 560px;
+  max-width: 560px;
+  max-height: 315px;
+  min-height: 315px;
+  background-color:  #131517;
+  border: 2px solid #C3073F;
+  padding: 15px;
+  margin-left: 26px;
+  margin-top: 5px;
 }

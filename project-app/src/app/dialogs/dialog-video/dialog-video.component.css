@@ -1,0 +1,60 @@
+/* Dialog CSS */
+/* Dialog CSS */
+/* Dialog CSS */
+.dialog{
+    max-height: 250px;
+  min-height: 250px;
+  max-width: 450px;
+  min-width: 450px;
+  background-color: #131517;
+  }
+  
+  .dialog-button{
+    background-color: #C3073F;
+    color: #FFFFFF;
+  }
+
+  .dialog-title{
+    color: #FFFFFF;
+    margin-left: 30%;
+  }
+
+  .dialog-input-url{
+  align-content: center;    
+  margin-top: 5%;
+  margin-left: 19%;
+  padding: 5px;
+  margin-bottom: 5px;
+  border: 2px solid #C3073F;
+  background-color: #131517;
+  color: #C3073F;
+  font-size: large;
+  }
+
+  .dialog-input-type{
+    align-content: center;    
+    margin-top: 5%;
+    margin-left: 17%;
+    padding: 5px;
+    margin-bottom: 5px;
+    border: 2px solid #C3073F;
+    background-color: #131517;
+    color: #C3073F;
+    font-size: large;
+    }
+
+    .dialog-text{
+        color: #FFFFFF;
+        font-size: large;
+    }
+
+  .dialog-button-bottom{
+    background-color: #C3073F;
+    color: #FFFFFF;
+    margin-left:42%;
+  }
+
+
+  ::ng-deep.mat-dialog-container {
+    background-color: #131517;
+}

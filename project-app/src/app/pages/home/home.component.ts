@@ -3,9 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { ChatService } from 'src/app/services/chat/chat.service';
 import firebase from "firebase/app";
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
-import { ActivatedRoute } from '@angular/router';
+
 import { Observable } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogMessageComponent } from 'src/app/dialogs/dialog-message/dialog-message.component';
@@ -24,22 +23,19 @@ export class HomeComponent implements OnInit {
   picture: any;
   name: any;
 
-
+  // Chat Variables.
   chat$: Observable<any> | undefined;
+
   //Dialog variables.
   newMsg: any;
   dialogPicture: any;
 
   constructor(public cs: ChatService,
     private authService: AuthService,
-    private route: ActivatedRoute,
     public dialog: MatDialog,
-    private afs: AngularFirestore, //FireStore service 
   ) { }
 
   ngOnInit(): void {
-    console.log(firebase.auth)
-
 
     /* Authenticate User */
     firebase.auth().onAuthStateChanged((user) => {
@@ -91,6 +87,7 @@ export class HomeComponent implements OnInit {
     this.authService.signOut()
   }
 
+  /* Tracker To allow sort message in feed. */
   trackByCreated(i: any, msg: any) {
     return msg.createdAt;
   }

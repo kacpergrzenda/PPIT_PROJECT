@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ExerciseComponent } from './exercise.component'
 
-
+// Youtube-Player Api
 import { YouTubePlayerModule } from '@angular/youtube-player';
 
-// Auth service
-import { AuthService } from "../../services/auth/auth.service";
+import { DialogVideoComponent } from '../../dialogs/dialog-video/dialog-video.component';
+
+
 
 //Angular Material.
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -20,13 +21,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import {MatDialogModule} from '@angular/material/dialog';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
-  declarations: [ExerciseComponent],
+  declarations: [ExerciseComponent, DialogVideoComponent],
+  entryComponents: [DialogVideoComponent],
   imports: [
     YouTubePlayerModule,
+    MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
     MatCheckboxModule,

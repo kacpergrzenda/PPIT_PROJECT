@@ -52,56 +52,105 @@
                     <mat-card-title class="recommended-card-title">
                         <h2>RECOMMENDED EXERCISES</h2>
                     </mat-card-title>
+                    <div *ngIf="user?.uid == 'GxBXYdMVVtbRzuKcCmzoh1EcfvS2'">
+                        <button class="recommended-card-header-button" (click)="openDialog()"
+                            mat-button>AddVideo</button>
+                    </div>
                 </mat-card-header>
 
-                <mat-card-content class="recommended-card-content" *ngIf="allVideo">
+                <!--Card-content-->
+                <mat-card-content class="recommended-card-content" *ngIf="videos">
 
-                    <!-- Swimming-->
-                    <div *ngFor="let url of allVideo">
-                        <div *ngIf="swimming == true && url.type === 'swimming'">
+                    <!-- Swimming -->
+                    <div *ngFor="let video of videos">
+                        <div *ngIf="swimming == true && video.type === 'swimming'">
                             <!-- Video Card-->
                             <mat-card class="video-card">
-                                <mat-card-content >
-                                    <div>
-                                        <youtube-player [width]="560" [height]="315" videoId="{{url.video}}"
-                                            suggestedQuality="highres"></youtube-player>
+                                <!-- If Administrator  -->
+                                <div *ngIf="user?.uid == 'GxBXYdMVVtbRzuKcCmzoh1EcfvS2'">
+                                    <button mat-button class="video-card-delete-button" (click)="deleteVideo(video.url, video.type)">Delete</button>
+                                    <mat-card-content>
+                                        <div>
+                                            <youtube-player [width]="560" [height]="280" videoId="{{video.url}}"
+                                                suggestedQuality="highres"></youtube-player>
+                                        </div>
+                                    </mat-card-content>
+                                </div>
+                                <!-- If User -->
+                                <div *ngIf="user?.uid != 'GxBXYdMVVtbRzuKcCmzoh1EcfvS2'">
+                                    <mat-card-content>
+                                        <div>
+                                            <youtube-player [width]="560" [height]="315" videoId="{{video.url}}"
+                                                suggestedQuality="highres"></youtube-player>
+                                        </div>
+                                    </mat-card-content>
+                                </div>
+                            </mat-card>
+                        </div>
+                    </div>
+
+                    <!-- Running -->
+                    <div *ngFor="let video of videos">
+                        <div *ngIf="running == true && video.type === 'running'">
+                            <!-- Video Card-->
+                            <mat-card class="video-card">
+                                <mat-card-content>
+                                    <!-- If Administrator  -->
+                                    <div *ngIf="user?.uid == 'GxBXYdMVVtbRzuKcCmzoh1EcfvS2'">
+                                        <button mat-button class="video-card-delete-button" (click)="deleteVideo(video.url, video.type)">Delete</button>
+                                        <mat-card-content>
+                                            <div>
+                                                <youtube-player [width]="560" [height]="280" videoId="{{video.url}}"
+                                                    suggestedQuality="highres"></youtube-player>
+                                            </div>
+                                        </mat-card-content>
+                                    </div>
+                                    <!-- If User -->
+                                    <div *ngIf="user?.uid != 'GxBXYdMVVtbRzuKcCmzoh1EcfvS2'">
+                                        <mat-card-content>
+                                            <div>
+                                                <youtube-player [width]="560" [height]="315" videoId="{{video.url}}"
+                                                    suggestedQuality="highres"></youtube-player>
+                                            </div>
+                                        </mat-card-content>
                                     </div>
                                 </mat-card-content>
                             </mat-card>
                         </div>
                     </div>
 
-                     <!-- Weight-->
-                    <div *ngFor="let url of allVideo">
-                        <div *ngIf="weight == true && url.type === 'weight'">
+                    <!-- Weight -->
+                    <div *ngFor="let video of videos">
+                        <div *ngIf="weight == true && video.type === 'weight'">
                             <!-- Video Card-->
                             <mat-card class="video-card">
-                                <mat-card-content >
-                                    <div>
-                                        <youtube-player [width]="560" [height]="315" videoId="{{url.video}}"
-                                            suggestedQuality="highres"></youtube-player>
+                                <mat-card-content>
+                                    <!-- If Administrator  -->
+                                    <div *ngIf="user?.uid == 'GxBXYdMVVtbRzuKcCmzoh1EcfvS2'">
+                                        <button mat-button class="video-card-delete-button" (click)="deleteVideo(video.url, video.type)">Delete</button>
+                                        <mat-card-content>
+                                            <div>
+                                                <youtube-player [width]="560" [height]="280" videoId="{{video.url}}"
+                                                    suggestedQuality="highres"></youtube-player>
+                                            </div>
+                                        </mat-card-content>
+                                    </div>
+                                    <!-- If User -->
+                                    <div *ngIf="user?.uid != 'GxBXYdMVVtbRzuKcCmzoh1EcfvS2'">
+                                        <mat-card-content>
+                                            <div>
+                                                <youtube-player [width]="560" [height]="315" videoId="{{video.url}}"
+                                                    suggestedQuality="highres"></youtube-player>
+                                            </div>
+                                        </mat-card-content>
                                     </div>
                                 </mat-card-content>
                             </mat-card>
                         </div>
                     </div>
 
-                     <!-- Running -->
-                    <div *ngFor="let url of allVideo">
-                        <div *ngIf="running == true && url.type === 'running'">
-                            <!-- Video Card-->
-                            <mat-card class="video-card">
-                                <mat-card-content >
-                                    <div>
-                                        <youtube-player [width]="560" [height]="315" videoId="{{url.video}}"
-                                            suggestedQuality="highres"></youtube-player>
-                                    </div>
-                                </mat-card-content>
-                            </mat-card>
-                        </div>
-                    </div>
+
                 </mat-card-content>
-
             </mat-card>
         </mat-grid-tile>
 
@@ -120,9 +169,15 @@
 
                 <!--Card-Content-->
                 <mat-card-content class="hobby-card-content">
-                    <div><mat-checkbox class="hobby-card-checkbox" [(ngModel)]="running">Running</mat-checkbox></div>
-                    <div><mat-checkbox class="hobby-card-checkbox" [(ngModel)]="swimming">Swimming</mat-checkbox></div>
-                    <div><mat-checkbox class="hobby-card-checkbox" [(ngModel)]="weight">Weight</mat-checkbox></div>
+                    <div>
+                        <mat-checkbox class="hobby-card-checkbox" [(ngModel)]="running">Running</mat-checkbox>
+                    </div>
+                    <div>
+                        <mat-checkbox class="hobby-card-checkbox" [(ngModel)]="swimming">Swimming</mat-checkbox>
+                    </div>
+                    <div>
+                        <mat-checkbox class="hobby-card-checkbox" [(ngModel)]="weight">Weight</mat-checkbox>
+                    </div>
                 </mat-card-content>
 
             </mat-card>

@@ -106,8 +106,8 @@ mat-grid-tile {
 .profile-card-content {
   min-width: 600px;
   max-width: 600px;
-  max-height: 630px;
-  min-height: 630px;
+  max-height: 75%;
+  min-height: 75%;
   border: 2px solid #4E4E50;
   background-color: #131517;
   overflow-y: scroll;
