@@ -57,10 +57,12 @@ mat-grid-tile {
 /* Profile-Card CSS */
 /* Profile-Card CSS */
 .profile-card {
-  min-width: 600px;
+  height: 700px;
+  width: 600px;
+  /* min-width: 600px;
   max-width: 600px;
   max-height: 800px;
-  min-height: 800px;
+  min-height: 800px; */
   background-color:  #131517;
   border: 2px solid #4E4E50;
   padding: 15px;

@@ -20,8 +20,8 @@
 /* SCROLL CSS */
 /* SCROLL CSS */
 .scroll-viewport {
-  height: 850px;
-  width: 900px;
+  height: 700px;
+  width: 700px;
   border: 2px solid #4E4E50;
 }
 
@@ -46,10 +46,11 @@
 /* Message-Card CSS */
 /* Message-Card CSS */
 .message-card{
-  min-width: 850px;
-  max-width: 850px;
+  width: 1.45%;
+  /* min-width: 50px;
+  max-width: 300px;
   max-height: 500px;
-  min-height: 80px;
+  min-height: 80px; */
   margin: 10px 7px 10px 7px;
   background-color:  #131517;
   border: 2px solid #C3073F;
