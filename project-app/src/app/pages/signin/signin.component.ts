@@ -44,8 +44,17 @@ export class SigninComponent implements OnInit {
   onSignin() {
     this.authService.signIn(this.emailControl.value, this.passwordControl.value).
     then(() => {
-      //this.snackBar.open('YOUR SIGNED IN!');
     })
+  }
+
+  /* PassWord Reset Calls Password Reset In Auth Service*/
+  onResetPassword(){
+    this.authService.resetPassword(this.emailControl.value).
+    then(() => {
+      
+    }).catch(() => {
+     this.snackBar.open('Please Enter Email in Email Input to Reset Password!');
+    });
   }
 
 }

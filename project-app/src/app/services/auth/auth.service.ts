@@ -15,20 +15,20 @@ import { first, switchMap } from 'rxjs/operators';
 })
 export class AuthService {
 
-
+  // Variables.
   user: any; // Save logged in user data
-  //let user
+
   constructor(
     private afAuth: AngularFireAuth, //Firebase Auth Service
     private afs: AngularFirestore, //FireStore service 
     private router: Router, //Router
     private ngZone: NgZone,
   ) {
-   
+
     // Get the auth state, then fetch the Firestore user document or return null
     this.user = this.afAuth.authState.pipe(
       switchMap(user => {
-          // Logged in
+        // Logged in
         if (user) {
           return this.afs.doc(`users/${user.uid}`).valueChanges();
         } else {
@@ -42,8 +42,8 @@ export class AuthService {
   //signUp method is a request to our Firebase Authentication to create a new user   LOCAL STORAGE
   async signUp(email: string, password: string) {
     return this.afAuth.createUserWithEmailAndPassword(email, password)
-    
-    }
+
+  }
 
 
 
@@ -82,24 +82,11 @@ export class AuthService {
     return this.user.pipe(first()).toPrmise();
   }
 
-  // getUserData(uid:any){
-  //   const db = firebase.firestore();
+  /* PassWord Reset */
+  resetPassword(email: any) {
+    return this.afAuth.sendPasswordResetEmail(email)
+  }
 
-  //   const docRef = db.collection('users').doc(uid);
-
-  //   return docRef.get().then((doc) => {
-  //     if (doc.exists) {
-  //       return doc.data();
-  //     } else {
-  //       // doc.data() will be undefined in this case
-  //       console.log("No such document!");
-  //       return doc.data();
-  //     }
-  //   }).catch((error) => {
-  //     console.log("Error getting document:", error);
-  //   });
-  
-  // }
 
   private async oAuthLogin(provider: any) {
     const credential = await this.afAuth.signInWithPopup(provider);

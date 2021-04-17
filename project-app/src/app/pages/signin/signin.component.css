@@ -23,9 +23,11 @@ mat-card{
 }
 
 .aLink{
+    margin-right: 10%;
     float: right;
-    padding-right: 60px;
     text-decoration: none;
+    background-color: #131517;
+    color: #FFFFFF;
 }
 
 .main-div{
