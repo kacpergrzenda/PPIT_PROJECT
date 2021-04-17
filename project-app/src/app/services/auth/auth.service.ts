@@ -82,7 +82,7 @@ export class AuthService {
     return this.user.pipe(first()).toPrmise();
   }
 
-  /* PassWord Reset */
+  /* Password Reset Send User Email to allow them to change password*/
   resetPassword(email: any) {
     return this.afAuth.sendPasswordResetEmail(email)
   }
