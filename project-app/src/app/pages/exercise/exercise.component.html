@@ -19,25 +19,25 @@
             <div class="button-column">
                 <button mat-icon-button mat-raised-button class="left-grid-button" routerLink="/home">
                     <mat-icon>home</mat-icon>
-                </button>
+                </button><span class="left-grid-text">Home</span>
                 <br>
                 <br>
                 <br>
                 <button mat-icon-button mat-raised-button class="left-grid-button" routerLink="/profilepage">
                     <mat-icon>person</mat-icon>
-                </button>
+                </button><span class="left-grid-text">Profile</span>
                 <br>
                 <br>
                 <br>
                 <button mat-icon-button mat-raised-button class="left-grid-button" routerLink="/exercise">
                     <mat-icon>video_library</mat-icon>
-                </button>
+                </button><span class="left-grid-text">Videos</span>
                 <br>
                 <br>
                 <br>
                 <button mat-icon-button mat-raised-button class="left-grid-button" (click)="onSignOut()">
                     <mat-icon>arrow_back</mat-icon>
-                </button>
+                </button><span class="left-grid-text">Sign Out</span>
             </div>
         </mat-grid-tile>
 
@@ -68,7 +68,8 @@
                             <mat-card class="video-card">
                                 <!-- If Administrator  -->
                                 <div *ngIf="user?.uid == 'GxBXYdMVVtbRzuKcCmzoh1EcfvS2'">
-                                    <button mat-button class="video-card-delete-button" (click)="deleteVideo(video.url, video.type)">Delete</button>
+                                    <button mat-button class="video-card-delete-button"
+                                        (click)="deleteVideo(video.url, video.type)">Delete</button>
                                     <mat-card-content>
                                         <div>
                                             <youtube-player [width]="560" [height]="280" videoId="{{video.url}}"
@@ -97,7 +98,8 @@
                                 <mat-card-content>
                                     <!-- If Administrator  -->
                                     <div *ngIf="user?.uid == 'GxBXYdMVVtbRzuKcCmzoh1EcfvS2'">
-                                        <button mat-button class="video-card-delete-button" (click)="deleteVideo(video.url, video.type)">Delete</button>
+                                        <button mat-button class="video-card-delete-button"
+                                            (click)="deleteVideo(video.url, video.type)">Delete</button>
                                         <mat-card-content>
                                             <div>
                                                 <youtube-player [width]="560" [height]="280" videoId="{{video.url}}"
@@ -127,7 +129,8 @@
                                 <mat-card-content>
                                     <!-- If Administrator  -->
                                     <div *ngIf="user?.uid == 'GxBXYdMVVtbRzuKcCmzoh1EcfvS2'">
-                                        <button mat-button class="video-card-delete-button" (click)="deleteVideo(video.url, video.type)">Delete</button>
+                                        <button mat-button class="video-card-delete-button"
+                                            (click)="deleteVideo(video.url, video.type)">Delete</button>
                                         <mat-card-content>
                                             <div>
                                                 <youtube-player [width]="560" [height]="280" videoId="{{video.url}}"
@@ -185,18 +188,12 @@
 
     </mat-grid-list>
 
-
-
-
-
-
-
     <!-- mat-menu-trigger-for -->
     <!-- Gets Triggered When Menu Icon Clicked -->
     <mat-menu #menu="matMenu">
         <button mat-menu-item routerLink="/home">Home</button>
-        <button mat-menu-item routerLink="/profilepage">Profile</button>
-        <button mat-menu-item routerLink="/exercise">Exercise</button>
+        <button mat-menu-item routerLink="/profilepage"> Profile</button>
+        <button mat-menu-item routerLink="/exercise"> Exercise</button>
         <button mat-menu-item (click)="onSignOut()"> Sign Out</button>
     </mat-menu>
 </body>

@@ -36,6 +36,13 @@ background-color: #C3073F;
 color: #FFFFFF;
 }
 
+.left-grid-text{
+  margin-left: 10px;
+  font-size: large;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
 .left-grid-button-text{
 background-color: #C3073F;
 color: #FFFFFF;

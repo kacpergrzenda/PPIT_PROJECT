@@ -17,33 +17,27 @@
     <!--Left Column-->
     <mat-grid-tile colspan='1' class="left-grid">
       <div class="button-column">
-        <button mat-icon-button mat-raised-button class="left-grid-button">
-          <mat-icon>create</mat-icon>
-        </button>
-        <br>
-        <br>
-        <br>
         <button mat-icon-button mat-raised-button class="left-grid-button" routerLink="/home">
           <mat-icon>home</mat-icon>
-        </button>
+        </button><span class="left-grid-text">Home</span>
         <br>
         <br>
         <br>
         <button mat-icon-button mat-raised-button class="left-grid-button" routerLink="/profilepage">
           <mat-icon>person</mat-icon>
-        </button>
+        </button><span class="left-grid-text">Profile</span>
         <br>
         <br>
         <br>
         <button mat-icon-button mat-raised-button class="left-grid-button" routerLink="/exercise">
           <mat-icon>video_library</mat-icon>
-        </button>
+        </button><span class="left-grid-text">Videos</span>
         <br>
         <br>
         <br>
         <button mat-icon-button mat-raised-button class="left-grid-button" (click)="onSignOut()">
           <mat-icon>arrow_back</mat-icon>
-        </button>
+        </button><span class="left-grid-text">Sign Out</span>
       </div>
     </mat-grid-tile>
 
@@ -73,7 +67,9 @@
                 <mat-card-title class="message-card-title">
                   <div>@{{ msg.user?.displayName }}</div>
                 </mat-card-title>
-                <div><button mat-button class="message-card-delete-button" (click)="onDeleteMessage(msg.uid,msg.content,msg.createdAt,msg.picture)" >Delete Message</button></div>
+                <div><button mat-button class="message-card-delete-button"
+                    (click)="onDeleteMessage(msg.uid,msg.content,msg.createdAt,msg.picture)">Delete Message</button>
+                </div>
               </mat-card-header>
 
               <!--Card-Content-->
@@ -152,8 +148,8 @@
   <!-- Gets Triggered When Menu Icon Clicked -->
   <mat-menu #menu="matMenu">
     <button mat-menu-item routerLink="/home">Home</button>
-    <button mat-menu-item routerLink="/profilepage">Profile</button>
-    <button mat-menu-item routerLink="/exercise">Exercise</button>
+    <button mat-menu-item routerLink="/profilepage"> Profile</button>
+    <button mat-menu-item routerLink="/exercise"> Exercise</button>
     <button mat-menu-item (click)="onSignOut()"> Sign Out</button>
   </mat-menu>
 

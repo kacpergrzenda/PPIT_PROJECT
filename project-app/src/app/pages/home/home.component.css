@@ -16,6 +16,7 @@
   box-shadow: 0 0 10px #719ECE;
 }
 
+
 /* SCROLL CSS */
 /* SCROLL CSS */
 /* SCROLL CSS */
@@ -47,10 +48,6 @@
 /* Message-Card CSS */
 .message-card{
   width: 93%;
-  /* min-width: 50px;
-  max-width: 300px;
-  max-height: 500px;
-  min-height: 80px; */
   margin: 10px 7px 10px 7px;
   background-color:  #131517;
   border: 2px solid #C3073F;
@@ -91,10 +88,8 @@
 /* Profile-Card CSS */
 /* Profile-Card CSS */
 .profile-card{
-  min-width: 300px;
-  max-width: 300px;
-  max-height: 500px;
-  min-height: 500px;
+  width:35%;
+  height:5%;
   background-color:  #131517;
   border: 2px solid #4E4E50;
 }
@@ -133,6 +128,13 @@
   background-color: #C3073F;
   color: #FFFFFF;
   
+}
+
+.left-grid-text{
+  margin-left: 10px;
+  font-size: large;
+  font-weight: 500;
+  color: #FFFFFF;
 }
 
 .middle-grid{
