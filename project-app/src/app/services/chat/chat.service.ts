@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { AuthService } from '../auth/auth.service';
 import { Router } from '@angular/router';
 import firestore from 'firebase/app';
+import firebase from 'firebase/app';
 
 
 import { map, switchMap } from 'rxjs/operators';
@@ -50,8 +51,19 @@ export class ChatService {
   }
 
   /* Uses the Firestore arrayUnion method append a new chat message to document. */
-  async sendMessage(chatId: any, content: any, picture: any) {
+  async sendMessage(chatId: any, message: any) {
     const uid = chatId
+
+    var content = message[0];
+    var picture;
+
+    //If user doesnt send a picture set picture to empty string
+    if (message[1] == null){
+      picture = ""
+    }
+    else{
+      picture = message[1]
+    }
 
     const data = {
       uid, //uid of the user
@@ -97,6 +109,18 @@ export class ChatService {
         return chat;
       })
     );
+  }
+
+  /* Delets message from feed Collection on Firestore Database. */
+  async deleteMessage(uid:any, content:any, createdAt:any, picture:any) {
+    let messageRef: any;
+    const db = firebase.firestore();
+    messageRef = db.collection('chats').doc('feed');
+
+    var removeMessage = messageRef.update({
+      'messages': firestore.firestore.FieldValue.arrayRemove({ 'uid': uid, 'createdAt': createdAt, 'content': content, 'picture': picture })
+    })
+
   }
 
 }

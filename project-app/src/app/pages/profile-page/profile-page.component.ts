@@ -71,7 +71,6 @@ export class ProfilePageComponent implements OnInit {
         /* Get User Data from firestore user collection */
         const db = firebase.firestore();
         const docRef = db.collection('users').doc(user.uid);
-
         docRef.get().then((doc) => {
           if (doc.exists) {
             this.picture = doc.get("profilePicture");
@@ -122,7 +121,6 @@ export class ProfilePageComponent implements OnInit {
   onSaveProfile() {
     const ref = this.afs.collection('users').doc(this.user?.uid);
 
-   
     ref.update({
       height: this.heightControl.value,
       weight: this.weightControl.value,
@@ -130,6 +128,11 @@ export class ProfilePageComponent implements OnInit {
     });
 
     this.snackBar.open("User Information Updated.");
+  }
+
+  /* Call Delete Message Function in Chat Service */
+  onDeleteMessage(uid:any, content:any, createdAt:any, picture:any){
+    this.cs.deleteMessage(uid,content,createdAt,picture);
   }
 
 

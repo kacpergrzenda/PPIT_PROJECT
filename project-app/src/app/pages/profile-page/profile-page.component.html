@@ -73,6 +73,7 @@
                 <mat-card-title class="message-card-title">
                   <div>@{{ msg.user?.displayName }}</div>
                 </mat-card-title>
+                <div><button mat-button class="message-card-delete-button" (click)="onDeleteMessage(msg.uid,msg.content,msg.createdAt,msg.picture)" >Delete Message</button></div>
               </mat-card-header>
 
               <!--Card-Content-->

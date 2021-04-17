@@ -158,6 +158,11 @@ mat-grid-tile {
   margin: 10px 7px 10px 7px;
 }
 
+.message-card-delete-button{
+  color: #C3073F;
+  border: 2px solid #C3073F;
+}
+
 /* GRID CSS */
 /* GRID CSS */
 /* GRID CSS */
