@@ -2,12 +2,15 @@
   <p>
     <!-- NAVIGATION TOOLBAR-->
     <mat-toolbar class="toolbar">
-      <button mat-raised-button mat-icon-button class="toolbar-button" [matMenuTriggerFor]="menu">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span class="spacer"></span>
-      <span>PROFILE</span>
-      <span class="spacer"></span>
+
+      <div class="appLogo">
+        <button mat-button routerLink="/home">
+          <img class="appLogo-image" src="../../../assets/appLogoWhite.png">
+        </button>
+      </div>
+
+      <span class="toolbar-text">PROFILE</span>
+
     </mat-toolbar>
   </p>
 
@@ -31,7 +34,7 @@
         <br>
         <button mat-icon-button mat-raised-button class="left-grid-button" routerLink="/exercise">
           <mat-icon>video_library</mat-icon>
-        </button><span class="left-grid-text">Videos</span>
+        </button><span class="left-grid-text">Exercises</span>
         <br>
         <br>
         <br>
@@ -53,7 +56,6 @@
 
           <mat-card-title class="profile-card-title">@{{name}}</mat-card-title>
           <mat-card-subtitle class="profile-card-subtitle">{{userEmail}}</mat-card-subtitle>
-          <button class="profile-card-header-button" mat-button>Edit Profile</button>
         </mat-card-header>
 
         <!--Card-Content-->
@@ -143,14 +145,4 @@
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
-
-  <!-- mat-menu-trigger-for -->
-  <!-- Gets Triggered When Menu Icon Clicked -->
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item routerLink="/home">Home</button>
-    <button mat-menu-item routerLink="/profilepage"> Profile</button>
-    <button mat-menu-item routerLink="/exercise"> Exercise</button>
-    <button mat-menu-item (click)="onSignOut()"> Sign Out</button>
-  </mat-menu>
-
 </body>

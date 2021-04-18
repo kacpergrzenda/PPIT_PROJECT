@@ -1,4 +1,7 @@
 <body>
+    <div class="appLogo">
+        <img class="appLogo-image" src="../../../assets/appLogoWhite.png">
+    </div>
     <div class="main-div">
         <mat-card class="styleMatCard">
             <mat-card-content>
@@ -17,16 +20,16 @@
                         </mat-form-field>
                     </div>
 
-                    
+
                     <!-- User Upload File -->
                     <input type="file" class="file-input" (change)="onselectFile($event)" #fileUpload>
 
                     <div class="file-upload">
-                        
-                        <span *ngIf="url == null">No file uploaded yet.</span>
+
+                        <span *ngIf="url == null">Upload Profile Picture.  </span>
                         <span *ngIf="url">File Uploaded.</span>
 
-                        <button mat-mini-fab color="primary" class="upload-btn" (click)="fileUpload.click()">
+                        <button mat-mini-fab class="upload-btn" (click)="fileUpload.click()">
                             <mat-icon>attach_file</mat-icon>
                         </button>
                     </div>
@@ -59,7 +62,7 @@
                     </div>
 
                     <div class="text-center">
-                        <button class="logInButton" mat-raised-button  type="submit" [disabled]="!signupForm.valid"
+                        <button class="logInButton" mat-raised-button type="submit" [disabled]="!signupForm.valid"
                             (click)="onSignUp()">
                             Sign Up
                         </button>

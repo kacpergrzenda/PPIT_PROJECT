@@ -59,10 +59,6 @@ mat-grid-tile {
 .profile-card {
   height: 700px;
   width: 600px;
-  /* min-width: 600px;
-  max-width: 600px;
-  max-height: 800px;
-  min-height: 800px; */
   background-color:  #131517;
   border: 2px solid #4E4E50;
   padding: 15px;
@@ -75,15 +71,6 @@ mat-grid-tile {
   margin: 5px;
   border: 2px solid #4E4E50;
   padding: 5px;
-}
-
-.profile-card-header-button{
-  margin-left: 150px;
-  margin-right: 5px;
-  margin-top: 90px;
-  padding: 10px;
-  color: #C3073F;
-  border: 2px solid #C3073F;
 }
 
 .profile-card-image {
@@ -211,6 +198,11 @@ mat-grid-tile {
   color: #FFFFFF;
 }
 
+.toolbar-text{
+  text-align: center;
+  margin-left: 36%;
+}
+
 
 /* INFORMATION CARD CSS */
 /* INFORMATION CARD CSS */
@@ -263,6 +255,19 @@ mat-grid-tile {
   padding: 10px;
   color: #C3073F;
   border: 2px solid #C3073F;
+}
+
+/* LOGO CSS */
+/* LOGO CSS */
+/* LOGO CSS */
+.appLogo{
+  text-align: center;
+  padding-top: 1%;
+}
+
+.appLogo-image{
+  height: 60px;
+  text-align: center;
 }
 
 

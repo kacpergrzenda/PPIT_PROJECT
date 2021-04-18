@@ -48,11 +48,11 @@ export class HomeComponent implements OnInit {
         const p = user.photoURL;
         //x14Mi51fnqNqU5uNNiDs7YQ8aRh2
 
-         /* Join user Chats to the User */
-         const source = this.cs.get();
-         this.chat$ = this.cs.joinUsers(source);
- 
-         this.scrollBottom();
+        /* Join user Chats to the User */
+        const source = this.cs.get();
+        this.chat$ = this.cs.joinUsers(source);
+
+        this.scrollBottom();
 
 
         /* Get User Data from firestore user collection */
@@ -71,8 +71,8 @@ export class HomeComponent implements OnInit {
           console.log("Error getting document:", error);
         });
 
-        
-       
+
+
 
       } else {
         // User is signed out
@@ -89,7 +89,7 @@ export class HomeComponent implements OnInit {
 
   /* Tracker To allow sort message in feed. */
   trackByCreated(i: any, msg: any) {
-    return msg.createdAt;
+      return msg.createdAt;
   }
 
   /* Scroll to the bottom of the screen to see the most recent message. */
@@ -99,7 +99,7 @@ export class HomeComponent implements OnInit {
 
   /* Creates a Dialog that allows user to send a message. */
   openDialog() {
-    let dialogRef = this.dialog.open(DialogMessageComponent, { data: { newMsg: this.newMsg, dialogPicture: this.dialogPicture}});
+    let dialogRef = this.dialog.open(DialogMessageComponent, { data: { newMsg: this.newMsg, dialogPicture: this.dialogPicture } });
     dialogRef.afterClosed().subscribe(result => {
 
       /* If message isnt a null submit request to send*/

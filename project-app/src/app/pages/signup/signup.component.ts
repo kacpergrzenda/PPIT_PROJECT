@@ -38,6 +38,8 @@ export class SignupComponent implements OnInit {
 
 
   ngOnInit(): void {
+
+    /* SignUp Form Controls */
     this.signupForm = new FormGroup({
       displayName: new FormControl('', [Validators.required, Validators.minLength(6)]),
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -45,7 +47,7 @@ export class SignupComponent implements OnInit {
     });
   }
 
-  //signup request from the AuthService once the user submits the form
+  /* Call Signup request from the AuthService once the user submits the form */
   onSignUp() {
     this.authService.signUp(this.emailControl.value, this.passwordControl.value)
       .then((userCredential) => {
@@ -56,12 +58,10 @@ export class SignupComponent implements OnInit {
         /* Use the data user signed up with and Update it in FIRESTORE */
         this.authService.updateUserData(user);
 
-        
         const ref = this.afs.collection('users').doc(user?.uid);
         ref.update({ displayName: this.usernameControl.value, profilePicture: this.url })
 
         this.router.navigate(['home']);
-
       })
       .catch(
         (error) => {
@@ -69,7 +69,6 @@ export class SignupComponent implements OnInit {
           this.snackBar.open('There was a problem while trying to sign up a new user' + error.code + error.message);
         });
   }
-
 
   /* Select File From Pc and set it as a url */
   onselectFile(e: any) {

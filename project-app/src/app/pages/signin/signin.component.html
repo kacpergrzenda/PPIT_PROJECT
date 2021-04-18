@@ -1,15 +1,18 @@
 <body>
+    <div class="appLogo">
+        <img class="appLogo-image" src="../../../assets/appLogoWhite.png">
+    </div>
     <div class="main-div">
         <mat-card class="styleMatCard">
             <mat-card-content>
                 <div>
                     <h2>Sign In</h2>
                 </div>
-                <form [formGroup]="signinForm" *ngIf="signinForm" >
+                <form [formGroup]="signinForm" *ngIf="signinForm">
                     <div class="email-input">
                         <mat-form-field class="full-width" appearance="outline">
-                            <mat-label  class="labelText">Email</mat-label>
-                            <input  matInput type="text" [formControl]="emailControl" />
+                            <mat-label class="labelText">Email</mat-label>
+                            <input matInput type="text" [formControl]="emailControl" />
                             <mat-error *ngIf="emailControl.invalid">
                                 Required email address.
                             </mat-error>
@@ -19,7 +22,8 @@
                     <div>
                         <mat-form-field class="full-width" appearance="outline">
                             <mat-label class="labelText">Password</mat-label>
-                            <input matInput [type]="hide ? 'password' : 'text'" [formControl]="passwordControl" required />
+                            <input matInput [type]="hide ? 'password' : 'text'" [formControl]="passwordControl"
+                                required />
                             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                                 [attr.aria-pressed]="hide">
                                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -30,7 +34,8 @@
                         </mat-form-field>
                     </div>
                     <div>
-                        <button class="logInButton" mat-raised-button type="submit" [disabled]="!signinForm.valid" (click)="onSignin()">
+                        <button class="logInButton" mat-raised-button type="submit" [disabled]="!signinForm.valid"
+                            (click)="onSignin()">
                             Log In
                         </button>
                         <br>

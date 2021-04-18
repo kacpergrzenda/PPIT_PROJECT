@@ -37,7 +37,6 @@ export class ChatService {
   /* Writes a new chat Room document. */
   async create() {
 
-
     const data = {
       uid: 'feed', //uid of the user
       createdAt: Date.now(),

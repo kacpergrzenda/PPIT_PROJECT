@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from 'src/app/services/auth/auth.service';
@@ -41,6 +40,7 @@ export class SigninComponent implements OnInit {
     })
   }
 
+  /* Call SignIn Function on Authentication Service */
   onSignin() {
     this.authService.signIn(this.emailControl.value, this.passwordControl.value).
     then(() => {

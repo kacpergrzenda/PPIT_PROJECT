@@ -25,7 +25,7 @@ export class AuthService {
     private ngZone: NgZone,
   ) {
 
-    // Get the auth state, then fetch the Firestore user document or return null
+    /* Get the auth state, then fetch the Firestore user document or return null */
     this.user = this.afAuth.authState.pipe(
       switchMap(user => {
         // Logged in
@@ -39,15 +39,13 @@ export class AuthService {
     )
   }
 
-  //signUp method is a request to our Firebase Authentication to create a new user   LOCAL STORAGE
+  /* Firebase Authentication to create a new user */
   async signUp(email: string, password: string) {
     return this.afAuth.createUserWithEmailAndPassword(email, password)
 
   }
 
-
-
-  // Sign in with email/password
+  /* Firebase Authentication to sign user in */
   async signIn(email: string, password: string) {
     return this.afAuth.signInWithEmailAndPassword(email, password)
       .then((result) => {
@@ -60,13 +58,14 @@ export class AuthService {
       })
   }
 
-  //Signout
+  /* Sign User Out. */
   async signOut() {
     return this.afAuth.signOut().then(() => {
-      this.router.navigate(['menu']);
+      this.router.navigate(['menu']);//Navigate User to Menu Page On Sign Out
     })
   }
 
+  /* Updates User Data. */
   async updateUserData(user: any) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
 
@@ -78,6 +77,7 @@ export class AuthService {
     return userRef.set(data, { merge: true });
   }
 
+  /* Gets and returns User Information. */
   getUser() {
     return this.user.pipe(first()).toPrmise();
   }
@@ -88,9 +88,5 @@ export class AuthService {
   }
 
 
-  private async oAuthLogin(provider: any) {
-    const credential = await this.afAuth.signInWithPopup(provider);
-    return this.updateUserData(credential.user);
-  }
 
 }

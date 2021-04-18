@@ -3,20 +3,20 @@
     <!--NAVIGATION TOOLBAR-->
     <mat-toolbar class="toolbar">
 
-      <button mat-raised-button mat-icon-button class="toolbar-button" [matMenuTriggerFor]="menu">
-        <mat-icon >menu</mat-icon>
-      </button>
-
-      <span class="spacer"></span>
-      <span >HOME</span>
-      <span class="spacer"></span>
+      <div class="appLogo">
+        <button mat-button routerLink="/home">
+          <img class="appLogo-image" src="../../../assets/appLogoWhite.png">
+        </button>
+      </div>
+   
+      <span class="toolbar-text">HOME</span>    
 
     </mat-toolbar>
   </p>
 
 
   <!--Angular Material Grid to create 3 columns-->
-  <mat-grid-list cols="4" rows="2" rowHeight="100%" >
+  <mat-grid-list cols="4" rows="2" rowHeight="100%">
 
     <!--Left Column-->
     <mat-grid-tile colspan='1' class="left-grid">
@@ -28,25 +28,25 @@
         <br>
         <br>
         <button mat-icon-button mat-raised-button class="left-grid-button" routerLink="/home">
-          <mat-icon >home</mat-icon>
+          <mat-icon>home</mat-icon>
         </button><span class="left-grid-text">Home</span>
         <br>
         <br>
         <br>
         <button mat-icon-button mat-raised-button class="left-grid-button" routerLink="/profilepage">
-          <mat-icon >person</mat-icon>
+          <mat-icon>person</mat-icon>
         </button><span class="left-grid-text">Profile</span>
         <br>
         <br>
         <br>
         <button mat-icon-button mat-raised-button class="left-grid-button" routerLink="/exercise">
-          <mat-icon >video_library</mat-icon>
-        </button><span class="left-grid-text">Videos</span>
+          <mat-icon>video_library</mat-icon>
+        </button><span class="left-grid-text">Exercises</span>
         <br>
         <br>
         <br>
         <button mat-icon-button mat-raised-button class="left-grid-button" (click)="onSignOut()">
-          <mat-icon >arrow_back</mat-icon>
+          <mat-icon>arrow_back</mat-icon>
         </button><span class="left-grid-text">Sign Out</span>
       </div>
     </mat-grid-tile>
@@ -57,12 +57,13 @@
         <cdk-virtual-scroll-viewport itemSize="50" class="scroll-viewport">
 
           <!--Card-->
-          <mat-card class="message-card" role="listitem" mat-list-item 
-          *ngFor="let msg of chat.messages; trackBy: trackByCreated">
+          <mat-card class="message-card" role="listitem" mat-list-item
+            *ngFor="let msg of chat.messages; trackBy: trackByCreated">
 
             <!--Card-Header-->
             <mat-card-header>
-              <div mat-card-avatar><img mat-card-avatar class="message-card-avatar" [src]="msg.user?.profilePicture"></div>
+              <div mat-card-avatar><img mat-card-avatar class="message-card-avatar" [src]="msg.user?.profilePicture">
+              </div>
               <mat-card-title class="message-card-title">
                 <div>@{{ msg.user?.displayName }}</div>
               </mat-card-title>
@@ -74,7 +75,8 @@
                 {{ msg.content }}
               </p>
               <!-- Picture on the feed -->
-              <span *ngIf="msg.picture"><img mat-card-image class="message-card-image" [src]="msg.picture" alt="Photo"></span>
+              <span *ngIf="msg.picture"><img mat-card-image class="message-card-image" [src]="msg.picture"
+                  alt="Photo"></span>
             </mat-card-content>
 
           </mat-card>
@@ -101,13 +103,3 @@
 
 
 </body>
-
-
-<!-- mat-menu-trigger-for -->
-<!-- Gets Triggered When Menu Icon Clicked -->
-<mat-menu #menu="matMenu" class="black-color">
-  <button mat-menu-item routerLink="/home">Home</button>
-  <button mat-menu-item routerLink="/profilepage"> Profile</button>
-  <button mat-menu-item routerLink="/exercise"> Exercise</button>
-  <button mat-menu-item (click)="onSignOut()"> Sign Out</button>
-</mat-menu>

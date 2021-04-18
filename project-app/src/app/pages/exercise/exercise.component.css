@@ -23,6 +23,11 @@ background-color: #C3073F;
 color: #FFFFFF;
 }
 
+.toolbar-text{
+  text-align: center;
+  margin-left: 35%;
+}
+
 /* GRID CSS */
 /* GRID CSS */
 /* GRID CSS */
@@ -170,4 +175,17 @@ border: 2px solid #4E4E50;
   padding: 15px;
   margin-left: 26px;
   margin-top: 5px;
+}
+
+/* LOGO CSS */
+/* LOGO CSS */
+/* LOGO CSS */
+.appLogo{
+  text-align: center;
+  padding-top: 1%;
+}
+
+.appLogo-image{
+  height: 60px;
+  text-align: center;
 }

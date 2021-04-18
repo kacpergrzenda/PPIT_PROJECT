@@ -51,7 +51,6 @@ export class ExerciseComponent implements OnInit {
             /* Set array of videos from firestore to videos*/
             this.videos = doc.get("videos");
           } else {
-            // doc.data() will be undefined in this case
             console.log("No such document!");
           }
         }).catch((error) => {
@@ -118,7 +117,7 @@ export class ExerciseComponent implements OnInit {
 
   }
 
-  //SignOut User
+  /* Sign User Out. */
   onSignOut() {
     this.authService.signOut()
   }

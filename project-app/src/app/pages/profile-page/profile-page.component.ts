@@ -23,9 +23,10 @@ export class ProfilePageComponent implements OnInit {
   picture: any
   chat$: Observable<any> | undefined;
   user: any;
-  height:any;
-  weight:any;
-  gender:any;
+  height: any;
+  weight: any;
+  gender: any;
+  url:any;
 
   informationForm: any;//Form Variable.
 
@@ -50,6 +51,7 @@ export class ProfilePageComponent implements OnInit {
 
   ngOnInit(): void {
 
+    /* Information Form Controls */
     this.informationForm = new FormGroup({
       height: new FormControl(''),
       weight: new FormControl(''),
@@ -78,7 +80,7 @@ export class ProfilePageComponent implements OnInit {
             this.height = doc.get("height");
             this.weight = doc.get("weight");
             this.gender = doc.get("gender");
-            
+
           } else {
             // doc.data() will be undefined in this case
             console.log("No such document!");
@@ -87,9 +89,6 @@ export class ProfilePageComponent implements OnInit {
           console.log("Error getting document:", error);
         });
 
-
-
-        // ...
       } else {
         // User is signed out
         // ...
@@ -99,12 +98,10 @@ export class ProfilePageComponent implements OnInit {
 
   }
 
-
+  /* Sign User Out. */
   onSignOut() {
     this.authService.signOut()
   }
-
-  url = "https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg";
 
   /* Select File From Pc and set it as a url */
   onselectFile(e: any) {
@@ -131,8 +128,8 @@ export class ProfilePageComponent implements OnInit {
   }
 
   /* Call Delete Message Function in Chat Service */
-  onDeleteMessage(uid:any, content:any, createdAt:any, picture:any){
-    this.cs.deleteMessage(uid,content,createdAt,picture);
+  onDeleteMessage(uid: any, content: any, createdAt: any, picture: any) {
+    this.cs.deleteMessage(uid, content, createdAt, picture);
   }
 
 

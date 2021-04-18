@@ -11,7 +11,7 @@ body {
 }
 
 .main-div{
-  height: 80vh;
+  height: 70vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,31 +43,13 @@ body {
   color: white;
 }
 
+.appLogo{
+  padding-top: 6%;
+  height: 0%;
+  text-align: center;
+}
 
-
-
-
-
-
-
-
-
-
-/* .center {
-    margin: 0;
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-  }
-
-  button{
-      display: block;
-      align-items: center;
-      width: 200%;
-    }
-
-    body {
-        background-image: url('https://www.desktopbackground.org/download/o/2010/06/17/34466_top-gym-background-images-for-pinterest_1920x1080_h.jpg');
-      } */
+.appLogo-image{
+  height: 200px;
+  text-align: center;
+}

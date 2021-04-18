@@ -38,7 +38,7 @@ mat-card{
   }
 
   body {
-      background-color: black;
+      background-color: #131517;
   }
 
   .logInButton{
@@ -60,4 +60,16 @@ mat-card{
 
   .mat-form-field-appearance-outline .mat-form-field-outline {
     color: white;
+  }
+
+
+  .appLogo{
+    padding-top: 6%;
+    height: 0%;
+    text-align: center;
+  }
+  
+  .appLogo-image{
+    height: 200px;
+    text-align: center;
   }

@@ -43,6 +43,11 @@
   color: #FFFFFF;
 }
 
+.toolbar-text{
+  text-align: center;
+  margin-left: 37%;
+}
+
 /* Message-Card CSS */
 /* Message-Card CSS */
 /* Message-Card CSS */
@@ -63,7 +68,6 @@
 .message-card-title{
   margin-top: 10px;
   color: #4E4E50;
-  /* text-shadow: -1px -1px 0 #4E4E50, 1px -1px 0 #4E4E50, -1px 1px 0 #4E4E50, 1px 1px 0 #4E4E50; */
 }
 
 .message-card-text{
@@ -88,7 +92,7 @@
 /* Profile-Card CSS */
 /* Profile-Card CSS */
 .profile-card{
-  width:35%;
+  width:55%;
   height:5%;
   background-color:  #131517;
   border: 2px solid #4E4E50;
@@ -145,4 +149,17 @@
 .right-grid{
   background-color:  #131517;
   border: 2px solid #4E4E50;
+}
+
+/* LOGO CSS */
+/* LOGO CSS */
+/* LOGO CSS */
+.appLogo{
+  text-align: center;
+  padding-top: 1%;
+}
+
+.appLogo-image{
+  height: 60px;
+  text-align: center;
 }
