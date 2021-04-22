@@ -48,15 +48,20 @@ mat-card{
 
   .styleMatCard{
     width: 50%;
-    height: 60%;
-    margin: 10px 7px 10px 7px;
+    height: 550px;
+    margin-top: 8%;
     background-color:  #131517;
     border: 2px solid #C3073F;
     padding: 15px;
     word-wrap: break-word;
     overflow: hidden;
     color: white;
+    overflow: scroll;
   }
+  .styleMatCard::-webkit-scrollbar {
+    display: none;
+  }
+
 
   .mat-form-field-appearance-outline .mat-form-field-outline {
     color: white;

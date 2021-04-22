@@ -1,22 +1,28 @@
 <body>
-  <div class="appLogo">
-    <img class="appLogo-image" src="../../../assets/appLogoWhite.png">
-  </div>
   <div class="main-div">
     <mat-card class="styleMatCard">
       <mat-card-content>
-        <div>
+        <div class="appLogo">
+          <img class="appLogo-image" src="../../../assets/appLogoWhite.png">
+        </div>
+        <div class="menu-text">
           <h2>Welcome To The Training Plan</h2>
         </div>
-        <div class="buttonsSection">
-          <section>
-            <button class="buttons" mat-raised-button color="warn" routerLink="/signin">Sign In</button>
-            <br>
-            <br>
-            <button class="buttons" mat-raised-button color="warn" routerLink="/signup">Sign Up</button>
-          </section>
-        </div>
       </mat-card-content>
+      <mat-card-actions>
+        <button class="buttons" mat-raised-button color="warn" routerLink="/signin">Sign In</button>
+        <br>
+        <br>
+        <button class="buttons" mat-raised-button color="warn" routerLink="/signup">Sign Up</button>
+      </mat-card-actions>
+      <!-- <div class="buttonsSection">
+        <section>
+          <button class="buttons" mat-raised-button color="warn" routerLink="/signin">Sign In</button>
+          <br>
+          <br>
+          <button class="buttons" mat-raised-button color="warn" routerLink="/signup">Sign Up</button>
+        </section>
+      </div> -->
     </mat-card>
   </div>
 </body>

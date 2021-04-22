@@ -45,14 +45,18 @@ mat-card{
 
   .styleMatCard{
     width: 50%;
-    height: 75%;
-    margin: 10px 7px 10px 7px;
+    height: 630px;
+    margin-top: 11%;
     background-color:  #131517;
     border: 2px solid #C3073F;
     padding: 15px;
     word-wrap: break-word;
     overflow: hidden;
     color: #FFFFFF;
+    overflow: scroll;
+  }
+  .styleMatCard::-webkit-scrollbar {
+    display: none;
   }
 
   .labelText{
