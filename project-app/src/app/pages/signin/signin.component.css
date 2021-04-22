@@ -48,7 +48,7 @@ mat-card{
 
   .styleMatCard{
     width: 50%;
-    height: 45%;
+    height: 60%;
     margin: 10px 7px 10px 7px;
     background-color:  #131517;
     border: 2px solid #C3073F;
@@ -63,13 +63,18 @@ mat-card{
   }
 
 
-  .appLogo{
-    padding-top: 6%;
+  .appLogodiv{
+    padding-top: 1%;
+    padding-bottom: 4%;
     height: 0%;
     text-align: center;
   }
   
   .appLogo-image{
-    height: 200px;
-    text-align: center;
+    height: 145px;
+  /* text-align: center; */ 
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
   }

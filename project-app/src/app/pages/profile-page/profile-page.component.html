@@ -56,6 +56,15 @@
 
           <mat-card-title class="profile-card-title">@{{name}}</mat-card-title>
           <mat-card-subtitle class="profile-card-subtitle">{{userEmail}}</mat-card-subtitle>
+
+
+          <input type="file" class="file-input" (change)="onselectFile($event)" #fileUpload>
+          <div class="file-upload">
+              <span *ngIf="url == null">Upload Profile Picture.  </span>
+              <span class="fileUploadedText" *ngIf="url">Profile Picture Changed</span>
+
+              <button  (click)="fileUpload.click()" mat-button class="changeProfilePictureButton">Change Profile Picture</button>
+          </div>
         </mat-card-header>
 
         <!--Card-Content-->

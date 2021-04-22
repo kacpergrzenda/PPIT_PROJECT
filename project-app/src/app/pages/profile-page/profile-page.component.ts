@@ -110,8 +110,20 @@ export class ProfilePageComponent implements OnInit {
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = (event: any) => {
         this.url = event.target.result;
+        console.log(this.url);
+        this.updateProfilePicture(this.url);
       }
     }
+
+  }
+
+  updateProfilePicture(e: any)
+  {
+    const ref = this.afs.collection('users').doc(this.user?.uid);
+
+    ref.update({
+      profilePicture: e
+    });
   }
 
   /* Save User Information On Firestore under user Database */

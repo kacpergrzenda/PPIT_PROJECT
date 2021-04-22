@@ -33,7 +33,7 @@ body {
 
 .styleMatCard{
   width: 50%;
-  height: 25%;
+  height: 35%;
   margin: 10px 7px 10px 7px;
   background-color:  #131517;
   border: 2px solid #C3073F;
@@ -50,6 +50,6 @@ body {
 }
 
 .appLogo-image{
-  height: 200px;
+  height: 140px;
   text-align: center;
 }

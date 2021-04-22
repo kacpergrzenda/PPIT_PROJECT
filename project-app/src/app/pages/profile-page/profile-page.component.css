@@ -257,6 +257,13 @@ mat-grid-tile {
   border: 2px solid #C3073F;
 }
 
+.changeProfilePictureButton{
+  color: #C3073F;
+  border: 2px solid #C3073F;
+  margin-top: 31%;
+  height: 26%
+}
+
 /* LOGO CSS */
 /* LOGO CSS */
 /* LOGO CSS */
@@ -270,7 +277,11 @@ mat-grid-tile {
   text-align: center;
 }
 
+.file-input {
+  display: none;
+}
 
-
-
-
+.fileUploadedText{
+  color: #131517;
+  /* display: none; */
+}

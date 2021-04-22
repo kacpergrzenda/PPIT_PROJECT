@@ -119,13 +119,13 @@ border: 2px solid #4E4E50;
 .hobby-card-title{
     color:#FFFFFF;
     padding: 5px;
-    margin-left: 65px;
+    margin-left: 25%;
 }
 
 .hobby-card-content{
-    margin-left: 15px;
+    margin-left: 3%;
     width: 90%;
-    height: 80%;
+    height: 70%;
     color: #C3073F;
     border: 2px solid #4E4E50;
   }
@@ -133,8 +133,8 @@ border: 2px solid #4E4E50;
   .hobby-card-checkbox{
     color: #C3073F;
     padding: 30px;
-    margin-left: 80px;
-    margin-top: 39px;
+    margin-left: 15%;
+    margin-top: 1%;
     font-size: large;
     font-weight: bold;
 }
