@@ -78,9 +78,9 @@ mat-card{
 
 .appLogo-image{
   height: 145px;
-  /* text-align: center; */ 
-  display: block;
+  text-align: center; 
+  /* display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 50%; */
 }
